@@ -1,0 +1,737 @@
+/* Section — Figma #0:2023 */
+.get-more-out {
+  background: var(--color-bg-page);
+  padding: 106px 0 0;
+}
+
+/* Heading — Figma #0:2024 */
+.get-more-out__heading {
+  width: 689.54px;
+  max-width: calc(100% - 48px);
+  margin: 0 auto;
+  font: 700 50px/60px var(--font-family);
+  letter-spacing: -0.0056em;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+/* Cards wrapper — Figma #0:2025 */
+.get-more-out__content {
+  position: relative;
+  width: 1440px;
+  max-width: 100%;
+  min-height: 3094.42px;
+  margin: 67px auto 0;
+}
+
+.get-more-out__card {
+  position: absolute;
+  overflow: hidden;
+}
+
+.get-more-out__card .figma-img {
+  transition: transform var(--transition-smooth);
+}
+
+.get-more-out__card:hover .figma-img {
+  transform: scale(1.03);
+}
+
+/* Shared link styles */
+.get-more-out__link--md {
+  display: inline-flex;
+  font: 400 21px/29px var(--font-family);
+  letter-spacing: 0.011em;
+  color: var(--color-link);
+}
+
+.get-more-out__link--try {
+  display: inline-flex;
+  font: 400 17px/29px var(--font-family);
+  letter-spacing: 0.0136em;
+  color: var(--color-link);
+}
+
+.get-more-out__link--try-sm {
+  display: inline-flex;
+  font: 400 18px/29px var(--font-family);
+  letter-spacing: 0.0128em;
+  color: var(--color-link);
+}
+
+.get-more-out__link--light {
+  display: inline-flex;
+  font: 400 21px/29px var(--font-family);
+  letter-spacing: 0.011em;
+  color: var(--color-link-light);
+}
+
+.get-more-out__link--light-md {
+  display: inline-flex;
+  font: 400 21px/29px var(--font-family);
+  letter-spacing: 0.011em;
+  color: var(--color-link-light);
+}
+
+/* Figma links are text-only — no chevrons */
+.get-more-out .learn-more__icon {
+  display: none;
+}
+
+/* Try it free — slightly lower than Learn more (Figma baseline) */
+.get-more-out .try-offset {
+  transform: translateY(2px);
+}
+
+/* Apple One — Figma #0:2026 */
+.get-more-out__card--apple-one {
+  top: 0;
+  left: 30px;
+  width: 1380px;
+  height: 609px;
+  background: var(--color-white);
+}
+
+.get-more-out__apple-one-img {
+  position: absolute;
+  top: 150px;
+  left: 164.27px;
+  width: 542px;
+  height: 329px;
+  object-fit: fill;
+}
+
+.get-more-out__apple-one-copy {
+  position: absolute;
+  top: 182.5px;
+  left: 793.5px;
+  width: 420px;
+  height: 248px;
+}
+
+.get-more-out__apple-one-logo {
+  position: absolute;
+  top: 0;
+  left: 51.5px;
+  width: 317px;
+  height: 100px;
+  object-fit: fill;
+}
+
+.get-more-out__apple-one-subtitle {
+  position: absolute;
+  top: 129px;
+  left: 12.72px;
+  width: 394.76px;
+  margin: 0;
+  font: 700 25px/32px var(--font-family);
+  letter-spacing: 0.0078em;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.get-more-out__apple-one-links {
+  position: absolute;
+  top: 204px;
+  left: 88.41px;
+  display: flex;
+  align-items: flex-start;
+  gap: 21.421875px;
+}
+
+.get-more-out__apple-one-links .try-offset {
+  transform: translateY(8px);
+}
+
+/* Apple TV+ — Figma #0:2038 */
+.get-more-out__card--tv {
+  top: 639px;
+  left: 30px;
+  width: 675px;
+  height: 630.42px;
+  background: #090a0e;
+}
+
+.get-more-out__tv-copy {
+  position: absolute;
+  top: 67px;
+  left: 0;
+  width: 675px;
+  height: 161px;
+}
+
+.get-more-out__tv-logo {
+  position: absolute;
+  top: 0;
+  left: 288.5px;
+  width: 98px;
+  height: 39px;
+  object-fit: fill;
+}
+
+.get-more-out__tv-body {
+  position: absolute;
+  top: 54px;
+  left: 0;
+  width: 675px;
+  margin: 0;
+  padding: 0 199.5px;
+  box-sizing: border-box;
+  font: 400 19px/29px var(--font-family);
+  letter-spacing: 0.0122em;
+  text-align: center;
+  color: #f5f5f7;
+}
+
+.get-more-out__tv-body sup {
+  font-size: 1em;
+  line-height: 0;
+  vertical-align: baseline;
+  position: relative;
+  top: -0.35em;
+}
+
+.get-more-out__tv-links {
+  position: absolute;
+  top: 117px;
+  left: 0;
+  width: 675px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25.221878px;
+  padding: 0 214.143753px 0 214.34375px;
+  box-sizing: border-box;
+}
+
+.get-more-out__tv-showcase {
+  position: absolute;
+  top: 245px;
+  left: 0;
+  width: 675px;
+  height: 343.5px;
+  object-fit: fill;
+  display: block;
+}
+
+/* Apple Music — Figma #0:2082 */
+.get-more-out__card--music {
+  top: 639px;
+  left: 735px;
+  width: 675px;
+  height: 630.42px;
+  background: var(--color-white);
+}
+
+.get-more-out__music-copy {
+  position: absolute;
+  top: 69px;
+  left: 112.5px;
+  width: 450px;
+  height: 159.42px;
+  text-align: center;
+}
+
+.get-more-out__music-logo {
+  position: absolute;
+  top: 0;
+  left: 148px;
+  width: 154px;
+  height: 36.92px;
+  object-fit: fill;
+}
+
+.get-more-out__music-body {
+  position: absolute;
+  top: 52.42px;
+  left: 0;
+  width: 450px;
+  margin: 0;
+  font: 400 19px/29px var(--font-family);
+  letter-spacing: 0.0122em;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.get-more-out__music-links {
+  position: absolute;
+  top: 130.42px;
+  left: 0;
+  width: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 25.54px;
+}
+
+.get-more-out__music-links .try-offset {
+  transform: translateY(8px);
+}
+
+.get-more-out__albums {
+  position: absolute;
+  top: 295.42px;
+  left: -71px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 1px;
+}
+
+.get-more-out__album--left,
+.get-more-out__album--right {
+  width: 250px;
+  height: 250px;
+  border-radius: 8px;
+  object-fit: fill;
+}
+
+.get-more-out__album--middle {
+  width: 283px;
+  height: 283px;
+  border-radius: 8px;
+  object-fit: fill;
+}
+
+/* Apple News+ — Figma #0:2105 */
+.get-more-out__card--news {
+  top: 1299.42px;
+  left: 30px;
+  width: 675px;
+  height: 616px;
+  background-color: var(--color-bg-card);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.get-more-out__news-copy {
+  position: absolute;
+  top: 0;
+  left: 182.58px;
+  width: 309.84px;
+  height: 231px;
+  text-align: center;
+}
+
+.get-more-out__news-logo {
+  position: absolute;
+  top: 69px;
+  left: 62.92px;
+  width: 184px;
+  height: 39px;
+  object-fit: fill;
+}
+
+.get-more-out__news-body {
+  position: absolute;
+  top: 123px;
+  left: 0;
+  width: 309.84px;
+  margin: 0;
+  padding: 0 3.84375px 0 5px;
+  box-sizing: border-box;
+  font: 400 19px/29px var(--font-family);
+  letter-spacing: 0.0122em;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.get-more-out__news-body sup {
+  font-size: 1em;
+  line-height: 0;
+  vertical-align: baseline;
+  position: relative;
+  top: -0.35em;
+}
+
+.get-more-out__news-copy .get-more-out__link--md {
+  position: absolute;
+  top: 187px;
+  left: 96.56px;
+}
+
+/* Apple Arcade — Figma #0:2113 */
+.get-more-out__card--arcade {
+  top: 1299.42px;
+  left: 735px;
+  width: 675px;
+  height: 616px;
+  background-color: var(--color-white);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+}
+
+.get-more-out__arcade-copy {
+  position: absolute;
+  top: 0;
+  left: 157.5px;
+  width: 360px;
+  height: 231px;
+  text-align: center;
+  z-index: 2;
+  background: var(--color-white);
+}
+
+.get-more-out__arcade-logo {
+  position: absolute;
+  top: 69px;
+  left: 90px;
+  width: 180px;
+  height: 39px;
+  object-fit: fill;
+}
+
+.get-more-out__arcade-body {
+  position: absolute;
+  top: 125px;
+  left: 25.05px;
+  width: 310.09px;
+  margin: 0;
+  font: 400 21px/29px var(--font-family);
+  letter-spacing: 0.011em;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.get-more-out__arcade-links {
+  position: absolute;
+  top: 181px;
+  left: 0;
+  width: 360px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 29.421875px;
+  padding: 6px 51.753128px 0 51.9375px;
+  box-sizing: border-box;
+}
+
+.get-more-out__arcade-links .try-offset {
+  transform: translateY(8px);
+}
+
+/* Apple Fitness+ — Figma #0:2126 */
+.get-more-out__card--fitness {
+  top: 1945.42px;
+  left: 30px;
+  width: 675px;
+  height: 613px;
+  background: var(--color-bg-card);
+}
+
+.get-more-out__fitness-copy {
+  position: absolute;
+  top: 0;
+  left: 190.94px;
+  width: 293.13px;
+  height: 230px;
+  text-align: center;
+}
+
+.get-more-out__fitness-logo {
+  position: absolute;
+  top: 68px;
+  left: 39.56px;
+  width: 214px;
+  height: 40px;
+  object-fit: fill;
+}
+
+.get-more-out__fitness-body {
+  position: absolute;
+  top: 122px;
+  left: 0;
+  width: 293.13px;
+  margin: 0;
+  padding: 0 26.21875px 0 24.90625px;
+  box-sizing: border-box;
+  font: 400 19px/29px var(--font-family);
+  letter-spacing: 0.0122em;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.get-more-out__fitness-learn {
+  position: absolute;
+  top: 186px;
+  left: 15px;
+}
+
+.get-more-out__fitness-try {
+  position: absolute;
+  top: 201px;
+  left: 161.7px;
+}
+
+.get-more-out__fitness-img {
+  position: absolute;
+  top: 272px;
+  left: 40px;
+  width: 602px;
+  height: 299px;
+  object-fit: fill;
+}
+
+/* Apple Gift Card — Figma #0:2140 */
+.get-more-out__card--gift {
+  top: 1945.42px;
+  left: 735px;
+  width: 675px;
+  height: 613px;
+  background: var(--color-bg-card);
+}
+
+.get-more-out__gift-copy {
+  position: absolute;
+  top: 0;
+  left: 208.39px;
+  width: 258.2px;
+  height: 201px;
+  text-align: center;
+}
+
+.get-more-out__gift-logo {
+  position: absolute;
+  top: 68px;
+  left: 22.59px;
+  width: 213px;
+  height: 40px;
+  object-fit: fill;
+}
+
+.get-more-out__gift-body {
+  position: absolute;
+  top: 124px;
+  left: 0;
+  width: 258.4px;
+  margin: 0;
+  font: 400 19px/29px var(--font-family);
+  letter-spacing: 0.0122em;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.get-more-out__gift-learn {
+  position: absolute;
+  top: 157px;
+  left: 28.3px;
+}
+
+.get-more-out__gift-buy {
+  position: absolute;
+  top: 157px;
+  left: 179.42px;
+}
+
+.get-more-out__gift-img {
+  position: absolute;
+  top: 239px;
+  left: 0;
+  width: 675px;
+  height: 319px;
+  object-fit: fill;
+}
+
+/* Apple Research app — Figma #0:2151 */
+.get-more-out__card--research {
+  top: 2588.42px;
+  left: 30px;
+  width: 1380px;
+  height: 476px;
+  background: #fafafa;
+}
+
+.get-more-out__research-copy {
+  position: absolute;
+  top: 94px;
+  left: 0;
+  width: 575px;
+  height: 382px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 59px;
+  box-sizing: border-box;
+  text-align: center;
+  z-index: 2;
+}
+
+.get-more-out__research-title {
+  margin: 0;
+  padding: 0 140.484375px 0 140.515625px;
+  box-sizing: content-box;
+  width: auto;
+  font: 700 43px/52.01px var(--font-family);
+  letter-spacing: -0.0033em;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.get-more-out__research-title-line {
+  white-space: nowrap;
+}
+
+.get-more-out__research-body {
+  margin: 16px 0 0;
+  padding: 0 131.75px 0 131.25px;
+  box-sizing: content-box;
+  width: auto;
+  white-space: nowrap;
+  font: 400 19px/29px var(--font-family);
+  letter-spacing: 0.0122em;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.get-more-out__research-link {
+  margin-top: 5px;
+}
+
+.get-more-out__research-img {
+  position: absolute;
+  top: 88px;
+  left: 594.5px;
+  width: 766px;
+  height: 388px;
+  object-fit: fill;
+}
+
+@media (max-width: 1068px) {
+  .get-more-out__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    min-height: auto;
+    padding: 0 30px 60px;
+    box-sizing: border-box;
+  }
+
+  .get-more-out__card {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 675px;
+    height: auto;
+    min-height: 520px;
+  }
+
+  .get-more-out__card--apple-one,
+  .get-more-out__card--research {
+    max-width: 1380px;
+  }
+
+  .get-more-out__apple-one-img,
+  .get-more-out__apple-one-copy,
+  .get-more-out__tv-copy,
+  .get-more-out__tv-showcase,
+  .get-more-out__music-copy,
+  .get-more-out__albums,
+  .get-more-out__news-copy,
+  .get-more-out__arcade-copy,
+  .get-more-out__fitness-copy,
+  .get-more-out__fitness-img,
+  .get-more-out__gift-copy,
+  .get-more-out__gift-img,
+  .get-more-out__research-copy,
+  .get-more-out__research-img {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    padding: 40px 24px;
+    box-sizing: border-box;
+  }
+
+  .get-more-out__apple-one-logo,
+  .get-more-out__apple-one-subtitle,
+  .get-more-out__apple-one-links,
+  .get-more-out__tv-logo,
+  .get-more-out__tv-body,
+  .get-more-out__tv-links,
+  .get-more-out__music-logo,
+  .get-more-out__music-body,
+  .get-more-out__music-links,
+  .get-more-out__news-logo,
+  .get-more-out__news-body,
+  .get-more-out__arcade-logo,
+  .get-more-out__arcade-body,
+  .get-more-out__arcade-links,
+  .get-more-out__fitness-logo,
+  .get-more-out__fitness-body,
+  .get-more-out__fitness-learn,
+  .get-more-out__fitness-try,
+  .get-more-out__gift-logo,
+  .get-more-out__gift-body,
+  .get-more-out__gift-learn,
+  .get-more-out__gift-buy,
+  .get-more-out__research-title,
+  .get-more-out__research-body,
+  .get-more-out__research-link,
+  .get-more-out__news-copy .get-more-out__link--md {
+    position: static;
+    width: auto;
+    max-width: 100%;
+    padding: 0;
+    margin: 0 auto 12px;
+  }
+
+  .get-more-out__research-copy {
+    display: block;
+    padding-top: 40px;
+  }
+
+  .get-more-out__apple-one-links,
+  .get-more-out__tv-links,
+  .get-more-out__music-links,
+  .get-more-out__arcade-links {
+    justify-content: center;
+    margin-top: 12px;
+  }
+
+  .get-more-out__albums {
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+
+  .get-more-out__album--left,
+  .get-more-out__album--right,
+  .get-more-out__album--middle {
+    width: min(250px, 30vw);
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .get-more-out__album--middle {
+    width: min(283px, 34vw);
+  }
+
+  .get-more-out__fitness-img,
+  .get-more-out__gift-img,
+  .get-more-out__research-img,
+  .get-more-out__apple-one-img {
+    display: block;
+    margin: 24px auto 0;
+    width: 100%;
+    height: auto;
+    max-width: 602px;
+  }
+}
+
+@media (max-width: 734px) {
+  .get-more-out__heading {
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  .get-more-out__research-title {
+    font-size: 32px;
+    line-height: 38px;
+    padding-inline: 24px;
+  }
+}

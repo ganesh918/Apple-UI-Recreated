@@ -1,0 +1,374 @@
+.ways-to-save {
+  background: var(--color-bg-page);
+  padding: 106px 0 0;
+}
+
+.ways-to-save .section-title {
+  margin-bottom: 0;
+}
+
+.ways-to-save__content {
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+/* Trade-in — Figma #0:1900 */
+.ways-to-save__trade-in {
+  position: relative;
+  width: 1380px;
+  max-width: calc(100% - 60px);
+  margin: 0 auto 30px;
+  height: 717px;
+  background: var(--color-white);
+}
+
+.ways-to-save__trade-in-copy {
+  position: absolute;
+  top: 67px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 650px;
+  height: 261px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 1;
+}
+
+.ways-to-save__trade-in-title {
+  width: 640.25px;
+  max-width: 100%;
+  margin: -1px 0 0;
+  font: 700 48px/52.01px var(--font-family);
+  letter-spacing: -0.003em;
+  color: var(--color-text-primary);
+}
+
+.ways-to-save__trade-in-body {
+  width: 379.16px;
+  max-width: 100%;
+  margin: 25px 0 0;
+  font: 400 19px/29px var(--font-family);
+  letter-spacing: 0.0122em;
+  color: var(--color-text-primary);
+}
+
+.ways-to-save__trade-in-body sup {
+  font-size: 1em;
+  line-height: 0;
+  vertical-align: baseline;
+  position: relative;
+  top: -0.35em;
+}
+
+.ways-to-save__trade-in-link {
+  margin-top: 1px;
+}
+
+.ways-to-save__trade-in-img {
+  position: absolute;
+  top: 307px;
+  left: 0;
+  width: 1380px;
+  height: 410px;
+  max-width: none;
+  object-fit: fill;
+}
+
+/* Carrier + Apple Card row — Figma #0:1910 + #0:1930 */
+.ways-to-save__row {
+  display: grid;
+  grid-template-columns: 675px 675px;
+  gap: 30px;
+  width: 1380px;
+  max-width: calc(100% - 60px);
+  margin: 0 auto 30px;
+}
+
+.ways-to-save__promo-card {
+  position: relative;
+  width: 675px;
+  height: 757.19px;
+  background: var(--color-white);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.ways-to-save__carrier-head {
+  padding: 51px 40px 0;
+  box-sizing: border-box;
+}
+
+.ways-to-save__carrier-title {
+  width: 584.95px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  font: 700 45px/52.01px var(--font-family);
+  letter-spacing: -0.0032em;
+  color: var(--color-text-primary);
+}
+
+.ways-to-save__carrier-title sup {
+  font-size: 0.55em;
+  line-height: 0;
+  vertical-align: super;
+  letter-spacing: 0;
+}
+
+.ways-to-save__carrier-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1px;
+  padding: 25px 100.8px 61px 101px;
+  gap: 2px;
+  box-sizing: border-box;
+}
+
+.ways-to-save__carrier-body {
+  width: 393.2px;
+  max-width: 100%;
+  margin: 0;
+  font: 400 21px/29px var(--font-family);
+  letter-spacing: 0.011em;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.ways-to-save__carriers {
+  position: absolute;
+  top: 390px;
+  left: 62.5px;
+  width: 550px;
+  height: 331.19px;
+}
+
+.ways-to-save__carrier {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13.59375px;
+}
+
+.ways-to-save__carrier:nth-child(1) {
+  left: 0;
+  top: 0;
+}
+
+.ways-to-save__carrier:nth-child(2) {
+  left: 275px;
+  top: 0;
+}
+
+.ways-to-save__carrier:nth-child(3) {
+  left: 137.5px;
+  top: 165.59px;
+}
+
+.ways-to-save__carrier img {
+  width: 165px;
+  height: 76px;
+  max-width: none;
+}
+
+.ways-to-save__carrier-credit {
+  font: 400 17px/25px var(--font-family);
+  letter-spacing: -0.022em;
+  text-align: center;
+  white-space: pre-line;
+  color: var(--color-text-primary);
+}
+
+.ways-to-save__apple-card-copy {
+  position: absolute;
+  top: 0;
+  left: 79.5px;
+  width: 516px;
+  height: 314px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.ways-to-save__apple-card-title {
+  width: 458.72px;
+  max-width: 100%;
+  margin: 49px auto 0;
+  font: 700 43px/52.01px var(--font-family);
+  letter-spacing: -0.0033em;
+  color: var(--color-text-primary);
+}
+
+.ways-to-save__apple-card-body {
+  width: 429.89px;
+  max-width: 100%;
+  margin: 25px auto 0;
+  padding-top: 2px;
+  font: 400 20px/29px var(--font-family);
+  letter-spacing: 0.0116em;
+  color: var(--color-text-primary);
+}
+
+.ways-to-save__apple-card-link {
+  display: inline-flex;
+  margin-top: 2px;
+}
+
+.ways-to-save__apple-card-img {
+  position: absolute;
+  top: 400.19px;
+  left: 0;
+  width: 675px;
+  height: 357px;
+  max-width: none;
+  object-fit: fill;
+}
+
+/* Why Apple — Figma #0:1939 */
+.ways-to-save__why-apple {
+  position: relative;
+  width: 1380px;
+  max-width: calc(100% - 60px);
+  margin: 0 auto;
+  height: 560px;
+  background-size: 1380px 560px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.ways-to-save__why-apple-copy {
+  position: absolute;
+  top: 134px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 750px;
+  height: 290px;
+  text-align: center;
+}
+
+.ways-to-save__why-apple-title {
+  width: 455.62px;
+  max-width: 100%;
+  margin: -3px auto 0;
+  font: 700 44px/52.01px var(--font-family);
+  letter-spacing: -0.0033em;
+  color: var(--color-text-primary);
+}
+
+.ways-to-save__why-apple-body {
+  width: 428.26px;
+  max-width: 100%;
+  margin: 22px auto 0;
+  font: 400 19px/29px var(--font-family);
+  letter-spacing: 0.0122em;
+  color: var(--color-text-primary);
+}
+
+.ways-to-save__why-apple-link {
+  margin-top: 1px;
+}
+
+@media (max-width: 1068px) {
+  .ways-to-save__row {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: calc(100% - 60px);
+  }
+
+  .ways-to-save__promo-card {
+    width: 100%;
+    max-width: 675px;
+    margin-inline: auto;
+  }
+
+  .ways-to-save__trade-in {
+    height: auto;
+    min-height: 717px;
+    padding-bottom: 410px;
+  }
+
+  .ways-to-save__trade-in-copy {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    height: auto;
+    margin: 0 auto;
+    padding: 67px 20px 0;
+  }
+
+  .ways-to-save__trade-in-img {
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .ways-to-save__carrier-head {
+    padding: 51px 20px 0;
+  }
+
+  .ways-to-save__carrier-copy {
+    padding: 25px 20px 61px;
+  }
+
+  .ways-to-save__carriers {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    padding: 40px 20px;
+  }
+
+  .ways-to-save__carrier {
+    position: static;
+  }
+
+  .ways-to-save__apple-card-copy {
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 52px 40px 0;
+  }
+
+  .ways-to-save__apple-card-img {
+    position: relative;
+    top: auto;
+    width: 100%;
+    height: auto;
+    margin-top: 40px;
+  }
+
+  .ways-to-save__why-apple {
+    height: auto;
+    min-height: 560px;
+    background-size: cover;
+  }
+
+  .ways-to-save__why-apple-copy {
+    position: relative;
+    top: auto;
+    transform: none;
+    width: 100%;
+    height: auto;
+    padding: 134px 40px 48px;
+  }
+}
+
+@media (max-width: 734px) {
+  .ways-to-save__trade-in-title,
+  .ways-to-save__carrier-title,
+  .ways-to-save__apple-card-title,
+  .ways-to-save__why-apple-title {
+    font-size: 28px;
+    line-height: 34px;
+  }
+}

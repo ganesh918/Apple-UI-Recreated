@@ -1,0 +1,304 @@
+.hero-products {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-product {
+  overflow: hidden;
+}
+
+/* iPhone 14 — Figma: 1440×1069, content 980×879 at (230, 96) */
+.hero-product--14 {
+  background: var(--color-white);
+  min-height: 1099px;
+}
+
+.hero-product--14 .hero-product__stage {
+  width: var(--content-width);
+  margin: 0 auto;
+  padding-top: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-product--14 .hero-product__copy {
+  width: 583px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-product--14 .new-badge--hero {
+  margin-bottom: 13px;
+}
+
+.hero-product--14 .hero-product__logo {
+  margin: 0 auto 15px;
+}
+
+.hero-product--14 .hero-product__headline {
+  margin: 0 0 27px;
+  max-width: 583px;
+}
+
+.hero-product--14 .hero-product__price {
+  margin: 0 0 6.5px;
+}
+
+.hero-product--14 .hero-cta {
+  margin-top: 0;
+  margin-bottom: 80px;
+}
+
+.hero-product--14 .hero-product__image {
+  width: 981px;
+  height: 496px;
+  max-width: none;
+  object-fit: fill;
+  align-self: center;
+}
+
+/* iPhone 14 Pro — Figma: 1440×788 black, stage 980×696 at (230, 92) */
+.hero-product--14-pro {
+  background: #000000;
+  height: 788px;
+}
+
+.hero-product--14-pro .hero-product__stage {
+  width: var(--content-width);
+  margin: 0 auto;
+  padding-top: 92px;
+  height: 696px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-product--14-pro .hero-product__copy {
+  width: 470.59px;
+  min-height: 205px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-product--14-pro .hero-product__logo {
+  margin: 8px auto 13px;
+}
+
+.hero-product--14-pro .hero-product__headline--pro {
+  margin: 0 0 23px;
+  color: #f5f5f7;
+}
+
+.hero-product--14-pro .hero-product__price {
+  margin: 0 0 6.5px;
+  color: #f5f5f7;
+}
+
+.hero-product--14-pro .hero-cta {
+  margin-top: 0;
+}
+
+.hero-product--14-pro .hero-product__image {
+  width: 961px;
+  height: 393px;
+  max-width: none;
+  object-fit: fill;
+  margin-top: 98px;
+  align-self: flex-start;
+  margin-left: 9.5px;
+}
+
+/* iPhone SE — Figma: 1440×830, copy at (120, 282.5) 600×265, image panel 720×830 */
+.hero-product--se {
+  background: #fbfbfd;
+  height: 830px;
+  margin-top: 15px;
+}
+
+.hero-product__split {
+  display: grid;
+  grid-template-columns: 600px 720px;
+  width: 1440px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-left: 120px;
+  box-sizing: border-box;
+  height: 830px;
+}
+
+.hero-product__copy--se {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 600px;
+  min-height: 265px;
+  padding-top: 282.5px;
+  box-sizing: border-box;
+}
+
+.hero-product__copy--se .hero-product__logo {
+  margin: 8px auto 15px;
+}
+
+.hero-product__copy--se .hero-product__headline {
+  margin: 0 0 27px;
+}
+
+.hero-product__copy--se .hero-product__price {
+  margin: 0 0 12.5px;
+  color: #1d1d1f;
+}
+
+.hero-product__copy--se .hero-cta {
+  margin-top: 0;
+}
+
+.hero-product__se-image-wrap {
+  width: 720px;
+  height: 830px;
+  overflow: hidden;
+}
+
+.hero-product__se-image {
+  width: 494px;
+  height: 830px;
+  max-width: none;
+  object-fit: fill;
+  display: block;
+}
+
+.hero-product__copy--light .hero-product__headline,
+.hero-product__copy--light .hero-product__price {
+  color: var(--color-bg-light);
+}
+
+.hero-product__headline {
+  font: 700 43px/52.01px var(--font-family);
+  letter-spacing: -0.0033em;
+  color: var(--color-text-primary);
+}
+
+.hero-product__headline--pro {
+  font: 700 42px/52.01px var(--font-family);
+  letter-spacing: -0.0034em;
+}
+
+.hero-product__headline--gradient {
+  background: linear-gradient(
+    90deg,
+    rgba(30, 55, 145, 1) 0%,
+    rgba(41, 72, 177, 1) 40%,
+    rgba(49, 83, 198, 1) 55%,
+    rgba(56, 95, 218, 1) 60%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-product__price {
+  font: 400 19px/29px var(--font-family);
+  letter-spacing: 0.0122em;
+  color: var(--color-text-primary);
+}
+
+.hero-product__footnote-group {
+  white-space: nowrap;
+}
+
+.hero-product__footnote-mark {
+  font-size: 1em;
+  line-height: inherit;
+  vertical-align: baseline;
+}
+
+.hero-cta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 28px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hero-cta .buy-button {
+  margin-top: 12px;
+}
+
+@media (max-width: 1068px) {
+  .hero-product--14,
+  .hero-product--14-pro,
+  .hero-product--se {
+    height: auto;
+    min-height: 0;
+  }
+
+  .hero-product--14 .hero-product__stage,
+  .hero-product--14-pro .hero-product__stage {
+    height: auto;
+    padding-bottom: 40px;
+  }
+
+  .hero-product--14 .hero-product__image,
+  .hero-product--14-pro .hero-product__image {
+    position: static;
+    top: auto;
+    width: 100%;
+    height: auto;
+    max-width: 981px;
+    margin: 48px auto 0;
+    align-self: center;
+    margin-left: auto;
+  }
+
+  .hero-product--14-pro .hero-cta {
+    margin-bottom: 48px;
+  }
+
+  .hero-product__split {
+    grid-template-columns: 1fr;
+    height: auto;
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .hero-product__copy--se {
+    width: 100%;
+    min-height: 0;
+    padding: 64px 24px 32px;
+  }
+
+  .hero-product__se-image-wrap {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-product__se-image {
+    width: 100%;
+    max-width: 494px;
+    height: auto;
+  }
+}
+
+@media (max-width: 734px) {
+  .hero-product__headline {
+    font-size: 32px;
+    line-height: 38px;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    gap: 16px;
+  }
+}

@@ -1,0 +1,168 @@
+/* Section — Figma #0:2004 / #0:2005 */
+.what-makes-iphone {
+  background: var(--color-bg-page);
+  margin-top: 30px;
+  padding: 106px 0 0;
+}
+
+.what-makes-iphone .section-title {
+  width: 836.37px;
+  max-width: calc(100% - 48px);
+  margin: -3px auto 67px;
+  font: 700 51px/60px var(--font-family);
+  letter-spacing: -0.0055em;
+}
+
+/* Cards wrapper — Figma #0:2006 */
+.what-makes-iphone__ios,
+.what-makes-iphone__switch {
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.what-makes-iphone__ios:hover,
+.what-makes-iphone__switch:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+}
+
+.what-makes-iphone__switch-img,
+.what-makes-iphone__ios-visual {
+  transition: transform var(--transition-smooth);
+}
+
+.what-makes-iphone__switch:hover .what-makes-iphone__switch-img,
+.what-makes-iphone__ios:hover .what-makes-iphone__ios-visual {
+  transform: scale(1.02);
+}
+
+.what-makes-iphone__cards {
+  width: 1440px;
+  max-width: 100%;
+  min-height: 1253px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* iOS 16 — full Figma export (#0:2007) for exact phone positions */
+.what-makes-iphone__ios {
+  width: 1380px;
+  max-width: calc(100% - 60px);
+  margin: 0 auto;
+  background: var(--color-white);
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.what-makes-iphone__ios-visual {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+}
+
+/* Switch card — Figma #0:2013 / #0:2014 */
+.what-makes-iphone__switch {
+  width: 675px;
+  height: 593px;
+  margin: 30px 0 0 375px;
+  background: var(--color-white);
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.what-makes-iphone__switch-inner {
+  position: relative;
+  width: 675px;
+  height: 593px;
+}
+
+/* Switch copy — Figma #0:2015 */
+.what-makes-iphone__switch-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 675px;
+  padding-top: 61px;
+  gap: 1px;
+  box-sizing: border-box;
+}
+
+/* Switch title — Figma #0:2016 / #0:2017, style_7baa2216 */
+.what-makes-iphone__switch-title {
+  margin: 0;
+  padding: 0 128.6875px 0 129.3125px;
+  box-sizing: content-box;
+  width: auto;
+  max-width: none;
+  font: 700 44px/52.01px var(--font-family);
+  letter-spacing: -0.0033em;
+  color: var(--color-text-primary);
+  text-align: center;
+}
+
+.what-makes-iphone__switch-title-line {
+  white-space: nowrap;
+}
+
+/* Switch link — Figma #0:2018 / EL-dfcca9e1, style_9c74e1e1 */
+.what-makes-iphone__switch-link {
+  display: inline-flex;
+  justify-content: center;
+  font: 400 21px/29px var(--font-family);
+  letter-spacing: 0.011em;
+  color: var(--color-link);
+  text-align: center;
+}
+
+/* Switch image — Figma #0:2020 */
+.what-makes-iphone__switch-img {
+  position: absolute;
+  top: 236px;
+  left: 0;
+  width: 675px;
+  height: 357px;
+  max-width: none;
+  display: block;
+  object-fit: fill;
+}
+
+@media (max-width: 1068px) {
+  .what-makes-iphone__switch {
+    width: 675px;
+    max-width: calc(100% - 48px);
+    margin: 30px auto 0;
+  }
+
+  .what-makes-iphone__switch-inner {
+    width: 100%;
+    height: auto;
+    min-height: 593px;
+  }
+
+  .what-makes-iphone__switch-copy {
+    width: 100%;
+  }
+
+  .what-makes-iphone__switch-title {
+    width: auto;
+    max-width: none;
+  }
+
+  .what-makes-iphone__switch-img {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 675 / 357;
+  }
+}
+
+@media (max-width: 734px) {
+  .what-makes-iphone__switch-title {
+    font-size: 32px;
+    line-height: 38px;
+    padding-inline: 24px;
+  }
+}

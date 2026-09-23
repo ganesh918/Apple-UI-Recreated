@@ -1,0 +1,98 @@
+/* Page chrome — subtle polish */
+.promo-banner__link {
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.promo-banner__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--transition-smooth);
+}
+
+.promo-banner__link:hover::after {
+  transform: scaleX(1);
+}
+
+.chapter-nav__item:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Interactive surfaces — cards, rows, promo blocks */
+.interactive-surface {
+  transition:
+    transform var(--transition-medium),
+    box-shadow var(--transition-medium);
+  will-change: transform;
+}
+
+.interactive-surface:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.09);
+}
+
+.interactive-surface:active {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
+}
+
+/* Subtle image zoom on parent hover */
+.interactive-media {
+  overflow: hidden;
+}
+
+.interactive-media__target {
+  transition: transform 0.55s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: transform;
+}
+
+.interactive-media:hover .interactive-media__target {
+  transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interactive-surface,
+  .interactive-surface:hover,
+  .interactive-surface:active {
+    transform: none;
+    box-shadow: none;
+    transition: none;
+  }
+
+  .interactive-media__target,
+  .interactive-media:hover .interactive-media__target {
+    transform: none;
+    transition: none;
+  }
+
+  .get-more-out__card:hover .figma-img,
+  .guided-tour__card:hover .guided-tour__bg,
+  .accessory-row:hover .accessory-row__image,
+  .accessory-row:hover .accessory-row__airpods-img,
+  .what-makes-iphone__ios:hover,
+  .what-makes-iphone__switch:hover,
+  .what-makes-iphone__switch:hover .what-makes-iphone__switch-img,
+  .what-makes-iphone__ios:hover .what-makes-iphone__ios-visual {
+    transform: none;
+  }
+
+  .get-more-out__card .figma-img,
+  .guided-tour__bg,
+  .accessory-row__image,
+  .accessory-row__airpods-img,
+  .what-makes-iphone__ios,
+  .what-makes-iphone__switch,
+  .what-makes-iphone__switch-img,
+  .what-makes-iphone__ios-visual {
+    transition: none;
+  }
+}

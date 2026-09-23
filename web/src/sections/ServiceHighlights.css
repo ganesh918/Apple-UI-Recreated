@@ -1,0 +1,146 @@
+/* Service highlights — Figma #0:1979 / #0:1980 */
+.service-highlights {
+  background: var(--color-bg-page);
+  min-height: 363.78px;
+  padding: 83px 0 0;
+}
+
+.service-highlights__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 370px);
+  width: 1440px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 165px;
+  box-sizing: border-box;
+}
+
+.service-highlights__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 370px;
+  min-height: 280.78px;
+  text-align: center;
+}
+
+/* Icons — Figma #0:1987 / #0:1990 / #0:2003 */
+.service-highlights__icon {
+  flex-shrink: 0;
+  max-width: none;
+}
+
+.service-highlights__item--delivery .service-highlights__icon {
+  width: 51px;
+  height: 75px;
+}
+
+.service-highlights__item--financing .service-highlights__icon {
+  width: 55px;
+  height: 75px;
+}
+
+.service-highlights__item--support .service-highlights__icon {
+  width: 71px;
+  height: 75px;
+}
+
+/* Titles — Figma y:90 (15px below 75px icon), style_019fab5e */
+.service-highlights__title {
+  margin: 15px 0 0;
+  font: 700 19px/29px var(--font-family);
+  letter-spacing: 0.0122em;
+  color: var(--color-text-primary);
+  text-align: center;
+}
+
+/* Copy — Figma y:127.39 (8.39px below title) */
+.service-highlights__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8.39px;
+  gap: -6.609375px;
+}
+
+.service-highlights__body {
+  margin: 0;
+  font: 400 21px/29px var(--font-family);
+  letter-spacing: 0.011em;
+  color: var(--color-text-primary);
+  text-align: center;
+}
+
+/* Delivery — Figma #0:1983 / #0:1984 */
+.service-highlights__item--delivery .service-highlights__copy {
+  width: 308.34px;
+  padding: 0 15.31561279296875px 0 15.515625px;
+  box-sizing: border-box;
+}
+
+.service-highlights__item--delivery .service-highlights__body {
+  width: 277.5px;
+}
+
+/* Financing — Figma #0:1992 / #0:1993 */
+.service-highlights__item--financing .service-highlights__copy {
+  width: 308.34px;
+}
+
+.service-highlights__item--financing .service-highlights__body {
+  width: 100%;
+  padding: 0 10.73748779296875px 0 10.9375px;
+  box-sizing: border-box;
+}
+
+/* Support — Figma #0:1999 / #0:2000, style_11d45b3d */
+.service-highlights__item--support .service-highlights__copy {
+  width: 308.34px;
+}
+
+.service-highlights__item--support .service-highlights__body {
+  width: 100%;
+  padding: 0 46.796875px 0 46.53125px;
+  box-sizing: border-box;
+  font: 400 19px/29px var(--font-family);
+  letter-spacing: 0.0122em;
+}
+
+/* Learn more — Figma EL-dfcca9e1 */
+.service-highlights__link {
+  display: inline-flex;
+  justify-content: center;
+  gap: 0;
+  white-space: nowrap;
+  font: 400 21px/29px var(--font-family);
+  letter-spacing: 0.011em;
+  color: var(--color-link);
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .service-highlights__grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 0 22px;
+  }
+
+  .service-highlights__item {
+    width: 100%;
+    max-width: 370px;
+    margin: 0 auto;
+  }
+
+  .service-highlights__item--delivery .service-highlights__copy,
+  .service-highlights__item--financing .service-highlights__copy,
+  .service-highlights__item--support .service-highlights__copy {
+    width: 100%;
+    max-width: 308.34px;
+  }
+
+  .service-highlights__item--delivery .service-highlights__body,
+  .service-highlights__item--financing .service-highlights__body {
+    width: 100%;
+    max-width: 277.5px;
+  }
+}

@@ -1,0 +1,350 @@
+.featured-accessories {
+  background: var(--color-bg-page);
+  padding: 95px 0 17px;
+}
+
+/* Section heading — Figma #0:1947 / #0:1948, style_aac2b65e */
+.featured-accessories .featured-accessories__heading {
+  width: 100%;
+  height: 60px;
+  margin-bottom: 70px;
+  overflow: visible;
+  font: 700 51px/60px var(--font-family);
+  letter-spacing: -0.0055em;
+  color: var(--color-text-primary);
+  text-align: center;
+}
+
+.featured-accessories__heading-text {
+  display: block;
+  width: 522.06px;
+  max-width: 100%;
+  margin-inline: auto;
+  transform: translateY(-4px);
+}
+
+.accessory-row {
+  width: 1380px;
+  max-width: calc(100% - 60px);
+  margin: 0 auto 30px;
+  background: var(--color-white);
+  height: 540px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.accessory-row:hover .accessory-row__image,
+.accessory-row:hover .accessory-row__airpods-img {
+  transform: scale(1.035);
+}
+
+.accessory-row__image,
+.accessory-row__airpods-img {
+  transition: transform var(--transition-smooth);
+}
+
+.accessory-row__copy {
+  position: relative;
+  z-index: 1;
+  width: 400px;
+}
+
+/* MagSafe — Figma #0:1950 / #0:1951 */
+.accessory-row--magsafe {
+  box-sizing: border-box;
+  padding: 165.796875px 835px 165.8125px 145px;
+}
+
+.accessory-row__copy--magsafe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  height: 198.39px;
+  padding: 0;
+}
+
+.accessory-row--magsafe .accessory-row__title--magsafe {
+  width: 185px;
+  height: 52px;
+  margin: 0;
+  font: 700 44px/52.01px var(--font-family);
+  letter-spacing: -0.0033em;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.accessory-row--magsafe .accessory-row__body--magsafe {
+  width: 290.01px;
+  margin: 16.8px 0 0;
+  font: 400 21px/29px var(--font-family);
+  letter-spacing: 0.011em;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.accessory-row--magsafe .accessory-row__link--magsafe {
+  margin-top: -1.41px;
+  max-width: 259.31px;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.accessory-row--magsafe .accessory-row__image {
+  position: absolute;
+  left: 648.59px;
+  top: 67px;
+  width: 633px;
+  height: 463px;
+  max-width: none;
+  object-fit: fill;
+}
+
+/* AirTag — Figma #0:1958 / #0:1959 */
+.accessory-row--airtag {
+  box-sizing: border-box;
+  padding: 164.796875px 145px 166.8125px 835px;
+}
+
+.accessory-row--airtag .accessory-row__image {
+  position: absolute;
+  left: -5.59px;
+  top: 0;
+  width: 806px;
+  height: 531px;
+  max-width: none;
+  object-fit: fill;
+}
+
+.accessory-row__copy--airtag {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  height: 198.39px;
+  padding: 0;
+}
+
+.accessory-row--airtag .accessory-row__title--airtag {
+  width: 129px;
+  height: 52px;
+  margin: 0;
+  font: 700 43px/52.01px var(--font-family);
+  letter-spacing: -0.0033em;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.accessory-row__body-wrap--airtag {
+  width: 400px;
+  margin-top: 16.8px;
+  padding: 0 7.096875px 0 7.28125px;
+  box-sizing: border-box;
+}
+
+.accessory-row--airtag .accessory-row__body--airtag {
+  width: 385.62px;
+  margin: 0;
+  font: 400 21px/29px var(--font-family);
+  letter-spacing: 0.011em;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.accessory-row__links--airtag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  gap: 25.221874px;
+  margin: -1.41px 0 0;
+  padding: 0 103.503128px 0 103.6875px;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+.accessory-row--airtag .accessory-row__link--airtag-buy,
+.accessory-row--airtag .accessory-row__link--airtag-learn {
+  white-space: nowrap;
+  gap: 0;
+}
+
+.accessory-row__title {
+  font: 700 44px/52.01px var(--font-family);
+  letter-spacing: -0.0033em;
+  margin-bottom: 16.8px;
+  color: var(--color-text-primary);
+}
+
+.accessory-row__body {
+  font: 400 21px/29px var(--font-family);
+  letter-spacing: 0.011em;
+  margin-bottom: 20px;
+  color: var(--color-text-primary);
+}
+
+.accessory-row__links {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+/* AirPods — Figma #0:1970 / #0:1971 */
+.accessory-row--airpods {
+  height: 707.59px;
+  margin-bottom: 0;
+}
+
+.accessory-row__copy--airpods {
+  position: absolute;
+  top: 48px;
+  left: 542.5px;
+  width: 295px;
+}
+
+.accessory-row--airpods .accessory-row__title--airpods {
+  width: 278.93px;
+  margin: -3px auto 0;
+  font: 700 46px/52.01px var(--font-family);
+  letter-spacing: -0.0031em;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.accessory-row__airpods-img {
+  position: absolute;
+  left: 158.5px;
+  top: 166.59px;
+  width: 1063px;
+  height: 498px;
+  max-width: none;
+  object-fit: fill;
+}
+
+/* Shop all link — Figma #0:1977 / #0:1978 */
+.featured-accessories__shop-all {
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+}
+
+.featured-accessories__shop-all .learn-more {
+  font: 400 23px/32px var(--font-family);
+  letter-spacing: 0.0094em;
+  color: var(--color-link);
+}
+
+@media (max-width: 1068px) {
+  .accessory-row {
+    height: auto;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 24px;
+  }
+
+  .accessory-row__copy,
+  .accessory-row--magsafe .accessory-row__copy,
+  .accessory-row--airtag .accessory-row__copy {
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    order: -1;
+  }
+
+  .accessory-row--magsafe,
+  .accessory-row--airtag {
+    padding: 48px 24px;
+  }
+
+  .accessory-row__copy--magsafe,
+  .accessory-row__copy--airtag {
+    height: auto;
+  }
+
+  .accessory-row--magsafe .accessory-row__title--magsafe,
+  .accessory-row--magsafe .accessory-row__body--magsafe,
+  .accessory-row--magsafe .accessory-row__link--magsafe {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 16px;
+    white-space: normal;
+  }
+
+  .accessory-row--magsafe .accessory-row__link--magsafe {
+    margin-bottom: 0;
+  }
+
+  .accessory-row--airtag .accessory-row__title--airtag,
+  .accessory-row__body-wrap--airtag,
+  .accessory-row--airtag .accessory-row__body--airtag,
+  .accessory-row__links--airtag {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 16px;
+    padding: 0;
+    white-space: normal;
+  }
+
+  .accessory-row__links--airtag {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .accessory-row__image,
+  .accessory-row--magsafe .accessory-row__image,
+  .accessory-row--airtag .accessory-row__image {
+    position: static;
+    width: 100%;
+    height: auto;
+    max-width: 633px;
+    margin-top: 24px;
+  }
+
+  .accessory-row--airpods {
+    height: auto;
+    min-height: 707.59px;
+    padding: 48px 24px;
+  }
+
+  .accessory-row__copy--airpods {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 295px;
+    height: auto;
+    margin: 0 auto 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .accessory-row--airpods .accessory-row__title--airpods {
+    width: auto;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .accessory-row__airpods-img {
+    position: static;
+    width: 100%;
+    height: auto;
+    max-width: 1063px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 734px) {
+  .accessory-row__title {
+    font-size: 32px;
+    line-height: 38px;
+  }
+}

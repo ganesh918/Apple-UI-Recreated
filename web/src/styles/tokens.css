@@ -1,0 +1,52 @@
+:root {
+  /* Colors from Figma */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-text-primary: #1d1d1f;
+  --color-text-secondary: #6e6e73;
+  --color-text-muted: #86868b;
+  --color-text-footer: #424245;
+  --color-link: #0066cc;
+  --color-link-light: #2997ff;
+  --color-buy: #0071e3;
+  --color-new: #bf4800;
+  --color-bg-page: #f2f2f2;
+  --color-bg-light: #f5f5f7;
+  --color-bg-lighter: #fbfbfd;
+  --color-bg-card: #f9f9f9;
+  --color-bg-footer: #f5f5f7;
+  --color-border: #d2d2d7;
+  --color-nav-overlay: rgba(0, 0, 0, 0.8);
+
+  /* Layout */
+  --scroll-offset-top: 56px;
+  --page-max-width: 1440px;
+  --content-width: 980px;
+  --content-margin: 230px;
+  --section-gap: 30px;
+  --card-radius: 34px;
+  --pill-radius: 980px;
+
+  /* Typography - Helvetica Neue stack */
+  --font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  --text-hero: 700 43px/52.01px var(--font-family);
+  --text-hero-lg: 700 51px/60px var(--font-family);
+  --text-section: 700 48px/52.01px var(--font-family);
+  --text-subhead: 400 19px/29px var(--font-family);
+  --text-body: 400 21px/29px var(--font-family);
+  --text-link: 400 21px/29px var(--font-family);
+  --text-button: 400 17px/20px var(--font-family);
+  --text-small: 400 14px/20px var(--font-family);
+  --text-caption: 400 12px/16px var(--font-family);
+  --text-nav: 400 12px/16px var(--font-family);
+
+  --letter-tight: -0.0033em;
+  --letter-normal: 0.0122em;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.35s ease;
+  --transition-smooth: 0.45s cubic-bezier(0.25, 0.1, 0.25, 1);
+  --shadow-hover: 0 14px 44px rgba(0, 0, 0, 0.09);
+}

@@ -1,0 +1,266 @@
+.iphone-compare {
+  background: var(--color-white);
+  padding: 116px 0 85px;
+}
+
+.iphone-compare__inner {
+  width: var(--content-width);
+  max-width: calc(100% - 48px);
+  margin: 0 auto;
+}
+
+.iphone-compare__title {
+  margin-bottom: 120px;
+}
+
+.iphone-compare__matrix {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-left: 20px;
+}
+
+.iphone-compare__header-row,
+.iphone-compare__feature-row {
+  display: grid;
+  grid-template-columns: repeat(4, 209.5px);
+  gap: 34px;
+  width: 940px;
+}
+
+.iphone-compare__column {
+  width: 209.5px;
+}
+
+.iphone-compare__column--interactive {
+  border-radius: 12px;
+  transition: box-shadow var(--transition-medium);
+}
+
+.iphone-compare__column--interactive:hover {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+}
+
+.iphone-compare__header {
+  text-align: center;
+  height: 100%;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.iphone-compare__phone {
+  display: block;
+  margin: 0 auto 22px;
+  max-width: none;
+}
+
+.iphone-compare__colors {
+  display: block;
+  margin: 0 auto 35px;
+  height: 14px;
+  width: auto;
+  max-width: none;
+}
+
+.iphone-compare__info {
+  min-height: 183px;
+}
+
+.iphone-compare__logo-wrap {
+  position: relative;
+  width: 209.5px;
+  margin: 0 auto 13px;
+}
+
+.iphone-compare__logo {
+  display: block;
+  margin: 0 auto;
+  height: 20px;
+  width: auto;
+  max-width: none;
+}
+
+.iphone-compare__new {
+  position: absolute;
+  top: -21px;
+  left: 92.4px;
+  font: 400 12px/16px var(--font-family);
+  letter-spacing: -0.01em;
+  color: var(--color-new);
+}
+
+.iphone-compare__tagline {
+  font: 400 17px/25px var(--font-family);
+  letter-spacing: -0.022em;
+  min-height: 50px;
+  margin: 0 0 30px;
+}
+
+.iphone-compare__price {
+  font: 400 14px/20px var(--font-family);
+  letter-spacing: -0.016em;
+  margin-bottom: 18px;
+}
+
+.iphone-compare__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.iphone-compare__feature {
+  height: 100%;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.iphone-compare__feature-row.is-last .iphone-compare__feature {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.iphone-compare__feature.is-placeholder {
+  justify-content: center;
+}
+
+.iphone-compare__feature-dash {
+  display: block;
+  width: 6px;
+  height: 1px;
+  border-radius: 50px;
+  background: var(--color-text-primary);
+}
+
+.iphone-compare__feature-dash--spec {
+  margin-top: 11px;
+  margin-bottom: 9px;
+}
+
+.iphone-compare__feature-icon {
+  margin: 4px 0 10px;
+  max-width: none;
+  flex-shrink: 0;
+}
+
+.iphone-compare__feature-title {
+  font: 400 14px/20px var(--font-family);
+  letter-spacing: -0.016em;
+  margin: 0;
+  white-space: pre-line;
+}
+
+.iphone-compare__feature-title.is-display {
+  font: 700 17px/22px var(--font-family);
+  letter-spacing: 0;
+  margin-top: 3px;
+}
+
+.iphone-compare__feature-sub,
+.iphone-compare__feature-extra,
+.iphone-compare__feature-spec,
+.iphone-compare__feature-detail {
+  font: 400 14px/20px var(--font-family);
+  letter-spacing: -0.016em;
+  margin: 0;
+  white-space: pre-line;
+}
+
+.iphone-compare__feature-title.is-display + .iphone-compare__feature-sub {
+  margin-top: 3px;
+}
+
+.iphone-compare__feature-sub {
+  margin-top: 5px;
+}
+
+.iphone-compare__feature-sub + .iphone-compare__feature-extra {
+  margin-top: 13px;
+}
+
+.iphone-compare__feature-extra {
+  margin-top: 9px;
+}
+
+.iphone-compare__feature-extra + .iphone-compare__feature-extra {
+  margin-top: 15px;
+}
+
+.iphone-compare__feature-icon + .iphone-compare__feature-title {
+  margin-top: 0;
+}
+
+.iphone-compare__feature-spec {
+  margin-top: 4px;
+  color: var(--color-text-secondary);
+}
+
+.iphone-compare__feature-spec + .iphone-compare__feature-spec {
+  margin-top: 0;
+}
+
+.iphone-compare__feature-spec-sep {
+  color: var(--color-text-secondary);
+}
+
+.iphone-compare__feature-detail {
+  margin-top: 4px;
+  color: var(--color-text-secondary);
+}
+
+.iphone-compare__feature-sub.is-muted,
+.iphone-compare__feature-title.is-muted {
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+.iphone-compare__footnote-group {
+  white-space: nowrap;
+}
+
+.iphone-compare__feature sup {
+  font-size: 0.71em;
+  line-height: 0;
+  position: relative;
+  top: -0.05em;
+  vertical-align: baseline;
+}
+
+.iphone-compare__footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 42px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1068px) {
+  .iphone-compare__matrix {
+    padding-left: 0;
+  }
+
+  .iphone-compare__header-row,
+  .iphone-compare__feature-row {
+    grid-template-columns: repeat(2, 209.5px);
+    width: 453px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 734px) {
+  .iphone-compare__header-row,
+  .iphone-compare__feature-row {
+    grid-template-columns: 209.5px;
+    width: 209.5px;
+  }
+
+  .iphone-compare__title {
+    margin-bottom: 48px;
+  }
+}

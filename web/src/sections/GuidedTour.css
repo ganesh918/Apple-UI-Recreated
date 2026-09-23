@@ -1,0 +1,81 @@
+.guided-tour {
+  background: var(--color-white);
+  padding: 15px 15px 9px;
+}
+
+.guided-tour__card {
+  position: relative;
+  max-width: 1410px;
+  margin: 0 auto;
+  border-radius: 34px;
+  overflow: hidden;
+  width: 100%;
+  height: 814px;
+}
+
+.guided-tour__bg {
+  position: absolute;
+  inset: 0;
+  width: 1410px;
+  height: 814px;
+  max-width: none;
+  object-fit: cover;
+  transition: transform 0.65s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: transform;
+}
+
+.guided-tour__card:hover .guided-tour__bg {
+  transform: scale(1.025);
+}
+
+.guided-tour__content {
+  position: relative;
+  z-index: 1;
+  padding: 302px 0 0 218px;
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+  align-items: flex-start;
+}
+
+.guided-tour__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.guided-tour__eyebrow {
+  font: 700 21px/28px var(--font-family);
+  letter-spacing: -0.0034em;
+  color: var(--color-white);
+}
+
+.guided-tour__title {
+  font: 700 43px/52.01px var(--font-family);
+  letter-spacing: -0.0033em;
+  color: var(--color-white);
+}
+
+@media (max-width: 1068px) {
+  .guided-tour__card {
+    height: 560px;
+  }
+
+  .guided-tour__bg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .guided-tour__content {
+    padding: 180px 48px 48px;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 734px) {
+  .guided-tour__title {
+    font-size: 32px;
+    line-height: 38px;
+  }
+}

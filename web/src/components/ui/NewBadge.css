@@ -1,0 +1,21 @@
+.new-badge--hero {
+  color: #6e6e73;
+  font: 400 17px/25px var(--font-family);
+  letter-spacing: -0.022em;
+  display: block;
+  margin-bottom: 13px;
+}
+
+.new-badge--pill {
+  color: var(--color-new);
+  font: 400 10px/12px var(--font-family);
+  letter-spacing: -0.008em;
+  display: block;
+}
+
+@media (max-width: 734px) {
+  .new-badge--hero {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

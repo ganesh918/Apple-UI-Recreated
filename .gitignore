@@ -1,0 +1,16 @@
+# Secrets — never commit tokens
+.env
+.env.*
+!.env.example
+
+# Local Cursor MCP config (copy from .cursor/mcp.json.example)
+.cursor/mcp.json
+
+# Dependencies & build
+node_modules/
+dist/
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
