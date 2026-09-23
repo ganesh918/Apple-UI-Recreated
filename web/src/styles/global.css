@@ -129,6 +129,12 @@ button {
     width: 14px;
     height: auto;
   }
+
+  .global-nav__account-menu {
+    left: 0;
+    right: auto;
+    max-width: min(280px, calc(100vw - 32px));
+  }
 }
 
 @media (max-width: 734px) {

@@ -125,20 +125,6 @@
     padding-inline: 22px;
   }
 
-  .global-nav__account-name {
-    display: none;
-  }
-
-  .global-nav__account {
-    border-right: none;
-    margin-right: 0;
-    padding-right: 0;
-  }
-
-  .global-nav__sign-out {
-    font-size: 11px;
-    padding: 4px;
-  }
 }
 
 @media (max-width: 480px) {
