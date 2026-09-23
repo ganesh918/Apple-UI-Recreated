@@ -1,3 +1,5 @@
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../auth/AuthContext';
 import { images } from '../../assets/images';
 import './GlobalNav.css';
 
@@ -15,12 +17,20 @@ const navItems = [
 ];
 
 export function GlobalNav() {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
+  function handleSignOut() {
+    logout();
+    navigate('/login', { replace: true });
+  }
+
   return (
     <nav className="global-nav" aria-label="Global">
       <div className="global-nav__inner">
-        <a href="#" className="global-nav__apple" aria-label="Apple">
+        <Link to="/" className="global-nav__apple" aria-label="Apple">
           <img src={images.icons.appleLogo} alt="" width={14} height={44} className="figma-img" />
-        </a>
+        </Link>
         <ul className="global-nav__list">
           {navItems.map((item) => (
             <li key={item.label}>
@@ -37,6 +47,16 @@ export function GlobalNav() {
           ))}
         </ul>
         <div className="global-nav__actions">
+          {user ? (
+            <div className="global-nav__account">
+              <span className="global-nav__account-name" title={user.email}>
+                {user.name.split(' ')[0]}
+              </span>
+              <button type="button" className="global-nav__sign-out" onClick={handleSignOut}>
+                Sign out
+              </button>
+            </div>
+          ) : null}
           <button type="button" className="global-nav__icon" aria-label="Search">
             <img src={images.icons.search} alt="" width={15} height={44} className="figma-img" />
           </button>

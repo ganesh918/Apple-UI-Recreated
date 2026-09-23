@@ -144,3 +144,15 @@
     max-width: 277.5px;
   }
 }
+
+@media (max-width: 734px) {
+  .service-highlights__title {
+    font-size: 21px;
+    line-height: 28px;
+  }
+
+  .service-highlights__body {
+    font-size: 17px;
+    line-height: 25px;
+  }
+}

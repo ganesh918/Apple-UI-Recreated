@@ -74,8 +74,60 @@
 }
 
 @media (max-width: 734px) {
+  .guided-tour {
+    padding: 12px 12px 8px;
+  }
+
+  .guided-tour__card {
+    height: auto;
+    min-height: 0;
+    border-radius: 22px;
+    display: block;
+    overflow: hidden;
+  }
+
+  .guided-tour__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+
+  .guided-tour__content {
+    position: relative;
+    z-index: 1;
+    min-height: 480px;
+    padding: 0 20px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .guided-tour__heading {
+    width: 100%;
+    align-items: center;
+  }
+
+  .guided-tour__eyebrow {
+    font-size: 17px;
+    line-height: 24px;
+  }
+
   .guided-tour__title {
-    font-size: 32px;
-    line-height: 38px;
+    font-size: 28px;
+    line-height: 34px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .guided-tour__card:hover .guided-tour__bg {
+    transform: none;
   }
 }

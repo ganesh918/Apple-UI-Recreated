@@ -371,4 +371,54 @@
     font-size: 28px;
     line-height: 34px;
   }
+
+  .ways-to-save__why-apple {
+    width: calc(100% - 32px);
+    max-width: 100%;
+    height: auto;
+    min-height: 540px;
+    margin-inline: auto;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .ways-to-save__why-apple-copy {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding: 48px 20px 32px;
+    box-sizing: border-box;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .ways-to-save__why-apple-title {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 16px;
+    padding: 0;
+  }
+
+  .ways-to-save__why-apple-body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 16px;
+    font-size: 17px;
+    line-height: 25px;
+    padding: 0;
+  }
+
+  .ways-to-save__why-apple-link {
+    display: inline-flex;
+    margin: 0 auto;
+  }
 }

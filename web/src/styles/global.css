@@ -1,5 +1,7 @@
 @import './tokens.css';
 @import './animations.css';
+@import './responsive.css';
+@import './mobile-cards.css';
 
 *,
 *::before,
@@ -13,6 +15,15 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  overflow-x: clip;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  overflow-x: clip;
 }
 
 .hero-product[id],
@@ -63,9 +74,11 @@ button {
 }
 
 .page {
+  width: 100%;
   max-width: var(--page-max-width);
   margin: 0 auto;
   background: var(--color-bg-page);
+  overflow-x: clip;
 }
 
 .content-wrap {
@@ -93,11 +106,34 @@ button {
 @media (max-width: 1068px) {
   :root {
     --content-margin: 48px;
+    --content-width: min(980px, 100%);
+  }
+
+  /* Let marketing images shrink; keep nav/chapter icons fixed size */
+  .figma-img {
+    max-width: 100%;
+    height: auto;
+    flex-shrink: 1;
+  }
+
+  .global-nav__icon-img,
+  .chapter-nav__icon-img {
+    max-width: none;
+    flex-shrink: 0;
+    width: auto;
+  }
+
+  .global-nav__apple .figma-img {
+    max-width: none;
+    flex-shrink: 0;
+    width: 14px;
+    height: auto;
   }
 }
 
 @media (max-width: 734px) {
   :root {
     --content-margin: 22px;
+    --content-width: 100%;
   }
 }

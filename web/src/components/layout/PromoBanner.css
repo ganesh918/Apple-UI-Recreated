@@ -5,8 +5,8 @@
 }
 
 .promo-banner__text {
-  width: var(--content-width);
-  max-width: calc(100% - 44px);
+  width: 100%;
+  max-width: min(var(--content-width), calc(100% - 44px));
   margin: 0 auto;
   padding: 9px 0;
   text-align: center;

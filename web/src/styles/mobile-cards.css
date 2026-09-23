@@ -1,0 +1,412 @@
+/* Mobile card layout — fixes absolute Figma positioning below 734px */
+
+@media (max-width: 734px) {
+  .featured-accessories {
+    padding: 56px 0 8px;
+  }
+
+  .featured-accessories .featured-accessories__heading {
+    height: auto;
+    margin-bottom: 40px;
+    font-size: 32px;
+    line-height: 38px;
+  }
+
+  .accessory-row,
+  .accessory-row--magsafe,
+  .accessory-row--airtag,
+  .accessory-row--airpods {
+    width: calc(100% - 32px);
+    max-width: 100%;
+    margin: 0 auto 20px;
+    padding: 40px 20px;
+    height: auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    border-radius: 18px;
+    box-sizing: border-box;
+  }
+
+  .accessory-row__copy,
+  .accessory-row__copy--magsafe,
+  .accessory-row__copy--airtag,
+  .accessory-row__copy--airpods {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    order: -1;
+    text-align: center;
+    padding: 0;
+  }
+
+  .accessory-row--magsafe .accessory-row__title--magsafe,
+  .accessory-row--magsafe .accessory-row__body--magsafe,
+  .accessory-row--airtag .accessory-row__title--airtag,
+  .accessory-row__body-wrap--airtag,
+  .accessory-row--airtag .accessory-row__body--airtag,
+  .accessory-row--airpods .accessory-row__title--airpods {
+    width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .accessory-row__body-wrap--airtag {
+    margin-top: 12px;
+    padding: 0;
+  }
+
+  .accessory-row__links--airtag {
+    width: 100%;
+    padding: 0;
+    margin-top: 8px;
+    gap: 20px;
+  }
+
+  .accessory-row--magsafe .accessory-row__image,
+  .accessory-row--airtag .accessory-row__image,
+  .accessory-row__airpods-img {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    max-width: min(420px, 100%);
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+
+  .accessory-row__title,
+  .accessory-row--airtag .accessory-row__title--airtag {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .accessory-row__body,
+  .accessory-row--airtag .accessory-row__body--airtag {
+    font-size: 17px;
+    line-height: 25px;
+  }
+
+  /* Ways to save */
+  .ways-to-save {
+    padding-top: 56px;
+  }
+
+  .ways-to-save__content {
+    padding-top: 40px;
+    padding-bottom: 24px;
+  }
+
+  .ways-to-save__trade-in,
+  .ways-to-save__row,
+  .ways-to-save__why-apple {
+    width: calc(100% - 32px);
+    max-width: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .ways-to-save__trade-in {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 0;
+    padding-bottom: 0;
+  }
+
+  .ways-to-save__trade-in-copy {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    height: auto;
+    padding: 40px 20px 24px;
+    box-sizing: border-box;
+  }
+
+  .ways-to-save__trade-in-img {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .ways-to-save__row {
+    gap: 20px;
+  }
+
+  .ways-to-save__promo-card {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    border-radius: 18px;
+  }
+
+  .ways-to-save__carrier-head {
+    padding: 36px 20px 0;
+  }
+
+  .ways-to-save__carrier-copy {
+    padding: 16px 20px 28px;
+  }
+
+  .ways-to-save__carrier-body {
+    font-size: 17px;
+    line-height: 25px;
+  }
+
+  .ways-to-save__carriers {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    padding: 8px 20px 36px;
+    box-sizing: border-box;
+  }
+
+  .ways-to-save__apple-card-copy {
+    padding: 40px 20px 16px;
+  }
+
+  .ways-to-save__apple-card-img {
+    margin-top: 8px;
+  }
+
+  /* Why Apple — see WaysToSave.css @734 for full layout */
+
+  /* Get more out */
+  .get-more-out__content {
+    width: 100%;
+    padding: 0 16px 40px;
+    gap: 20px;
+  }
+
+  .get-more-out__card {
+    width: 100%;
+    max-width: 100%;
+    left: auto;
+    top: auto;
+    height: auto;
+    min-height: 0;
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 36px 20px;
+    box-sizing: border-box;
+  }
+
+  .get-more-out__card--tv,
+  .get-more-out__card--news,
+  .get-more-out__card--arcade {
+    padding-bottom: 36px;
+  }
+
+  .get-more-out__apple-one-img,
+  .get-more-out__tv-showcase,
+  .get-more-out__fitness-img,
+  .get-more-out__gift-img,
+  .get-more-out__research-img,
+  .get-more-out__albums {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto 0;
+    padding: 0;
+    object-fit: contain;
+  }
+
+  .get-more-out__apple-one-copy,
+  .get-more-out__tv-copy,
+  .get-more-out__music-copy,
+  .get-more-out__news-copy,
+  .get-more-out__arcade-copy,
+  .get-more-out__fitness-copy,
+  .get-more-out__gift-copy,
+  .get-more-out__research-copy {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .get-more-out__apple-one-logo,
+  .get-more-out__tv-logo,
+  .get-more-out__music-logo,
+  .get-more-out__news-logo,
+  .get-more-out__arcade-logo,
+  .get-more-out__fitness-logo,
+  .get-more-out__gift-logo {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0 auto 16px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .get-more-out__apple-one-subtitle,
+  .get-more-out__tv-body,
+  .get-more-out__music-body,
+  .get-more-out__news-body,
+  .get-more-out__arcade-body,
+  .get-more-out__fitness-body,
+  .get-more-out__gift-body,
+  .get-more-out__research-body {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    font-size: 17px;
+    line-height: 25px;
+    margin-bottom: 12px;
+  }
+
+  .get-more-out__apple-one-links,
+  .get-more-out__tv-links,
+  .get-more-out__music-links,
+  .get-more-out__arcade-links {
+    position: static;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    margin-top: 8px;
+  }
+
+  .get-more-out__research-title {
+    padding-inline: 0;
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .get-more-out__gift-learn,
+  .get-more-out__gift-buy,
+  .get-more-out__fitness-learn,
+  .get-more-out__fitness-try,
+  .get-more-out__research-link,
+  .get-more-out__news-copy .get-more-out__link--md {
+    position: static;
+    display: inline-flex;
+    margin: 8px 6px 0;
+  }
+
+  .get-more-out__gift-copy,
+  .get-more-out__fitness-copy {
+    align-items: center;
+  }
+
+  .get-more-out__albums {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .get-more-out__album--left,
+  .get-more-out__album--right,
+  .get-more-out__album--middle {
+    width: min(120px, 28vw);
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .get-more-out__album--middle {
+    width: min(136px, 32vw);
+  }
+
+  /* Service highlights */
+  .service-highlights {
+    padding-top: 56px;
+  }
+
+  .service-highlights__grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+    padding: 0 16px 48px;
+    gap: 36px;
+  }
+
+  .service-highlights__item {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .service-highlights__item--delivery .service-highlights__copy,
+  .service-highlights__item--financing .service-highlights__copy,
+  .service-highlights__item--support .service-highlights__copy,
+  .service-highlights__item--delivery .service-highlights__body,
+  .service-highlights__item--financing .service-highlights__body {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* What makes iPhone */
+  .what-makes-iphone__switch {
+    width: calc(100% - 32px);
+    margin-inline: auto;
+    border-radius: 18px;
+  }
+
+  .what-makes-iphone__switch-copy {
+    padding: 40px 20px 24px;
+    text-align: center;
+  }
+
+  .what-makes-iphone__switch-title {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .what-makes-iphone__ios {
+    border-radius: 18px;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .accessory-row,
+  .ways-to-save__trade-in,
+  .ways-to-save__promo-card,
+  .ways-to-save__why-apple,
+  .get-more-out__card {
+    width: calc(100% - 24px);
+  }
+
+  .get-more-out__heading {
+    font-size: 28px;
+    line-height: 34px;
+  }
+}
+
+@media (hover: none) {
+  .interactive-surface:hover,
+  .interactive-surface:active {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .what-makes-iphone__ios:hover,
+  .what-makes-iphone__switch:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}

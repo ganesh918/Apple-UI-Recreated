@@ -1,5 +1,6 @@
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 import { images } from '../assets/images';
 import { BuyButton } from '../components/ui/BuyButton';
 import { revealBlurUp, scrollRevealProps, staggerContainer, staggerItemUp } from '../lib/motion';
@@ -8,6 +9,8 @@ import './GuidedTour.css';
 export function GuidedTour() {
   const sectionRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
+  const isCompact = useMediaQuery('(max-width: 734px)');
+  const disableParallax = reduceMotion || isCompact;
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start end', 'end start'],
@@ -30,7 +33,7 @@ export function GuidedTour() {
           width={1410}
           height={814}
           aria-hidden="true"
-          style={reduceMotion ? undefined : { y: bgY, scale: bgScale }}
+          style={disableParallax ? undefined : { y: bgY, scale: bgScale }}
         />
         <motion.div
           className="guided-tour__content"

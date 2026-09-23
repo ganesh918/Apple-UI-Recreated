@@ -5,15 +5,20 @@
   background: var(--color-bg-light);
   border-bottom: 1px solid var(--color-border);
   height: 44px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .global-nav__inner {
+  width: 100%;
   max-width: var(--page-max-width);
   margin: 0 auto;
   height: 44px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0 221px;
+  box-sizing: border-box;
 }
 
 .global-nav__apple {
@@ -65,6 +70,49 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  gap: 2px;
+}
+
+.global-nav__account {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 4px;
+  padding-right: 8px;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.global-nav__account-name {
+  font: 400 12px/16px var(--font-family);
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  max-width: 88px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.global-nav__sign-out {
+  border: none;
+  background: transparent;
+  font: 400 12px/16px var(--font-family);
+  letter-spacing: -0.01em;
+  color: var(--color-link);
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition:
+    background var(--transition-fast),
+    opacity var(--transition-fast);
+}
+
+.global-nav__sign-out:hover {
+  background: rgba(0, 102, 204, 0.08);
+}
+
+.global-nav__sign-out:focus-visible {
+  outline: 2px solid var(--color-buy);
+  outline-offset: 2px;
 }
 
 .global-nav__icon {
@@ -87,6 +135,10 @@
 
 @media (max-width: 734px) {
   .global-nav__inner {
-    padding: 0 22px;
+    padding: 0 16px;
+  }
+
+  .global-nav__actions {
+    gap: 0;
   }
 }

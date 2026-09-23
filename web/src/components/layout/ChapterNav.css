@@ -2,7 +2,11 @@
   background: #fbfbfd;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   height: 116px;
+  width: 100%;
+  max-width: 100%;
   overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
 
@@ -11,14 +15,14 @@
 }
 
 .chapter-nav__list {
-  width: 1372px;
+  width: max-content;
+  min-width: 100%;
   max-width: none;
   margin: 0 auto;
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 8px 34px 0;
-  min-width: max-content;
   height: 108px;
   list-style: none;
 }
@@ -101,5 +105,12 @@
   .chapter-nav__list {
     justify-content: flex-start;
     padding-inline: 22px;
+  }
+}
+
+@media (min-width: 1069px) {
+  .chapter-nav__list {
+    width: 1372px;
+    justify-content: center;
   }
 }

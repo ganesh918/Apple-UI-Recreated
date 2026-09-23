@@ -168,7 +168,7 @@ export function IphoneCompare() {
           <span id="compare-heading">Which iPhone is right for you?</span>
         </SectionTitle>
 
-        <div className="iphone-compare__matrix">
+        <div className="iphone-compare__matrix" tabIndex={0} aria-label="Compare iPhone models — scroll horizontally on small screens">
           <div
             className="iphone-compare__header-row"
             style={{ height: compareHeaderHeight }}
