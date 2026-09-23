@@ -17,6 +17,15 @@ npm run build
 npm run test
 ```
 
+### Deploy on Vercel
+
+This repo’s app lives in **`web/`**. Either:
+
+1. **Recommended:** In the Vercel project → **Settings → General → Root Directory**, set **`web`**, then redeploy (Build: `npm run build`, Output: `dist`), or  
+2. Leave Root Directory empty and use the root **`vercel.json`**, which builds `web/` and publishes `web/dist`.
+
+After changing settings, trigger **Redeploy** on the latest commit.
+
 ### Features
 
 - Figma-matched colors, typography (Helvetica Neue), spacing, and images
