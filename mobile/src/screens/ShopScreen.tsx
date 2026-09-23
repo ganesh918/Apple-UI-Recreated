@@ -1,6 +1,30 @@
-import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
+import { AppleMusicCard } from '../components/AppleMusicCard';
+import { AppleOneCard } from '../components/AppleOneCard';
+import { AppleTvCard } from '../components/AppleTvCard';
+import { PromoStackCard } from '../components/PromoStackCard';
+import { CarrierDealsCard } from '../components/CarrierDealsCard';
+import { CopyImageCard } from '../components/CopyImageCard';
 import { LearnMoreLink } from '../components/LearnMoreLink';
+import { ScreenScroll } from '../components/ScreenScroll';
+import { SectionCard } from '../components/SectionCard';
 import { colors } from '../theme/colors';
+import { layout, type } from '../theme/layout';
+
+const carriers = [
+  {
+    image: require('../../assets/images/carrier-att-56586a.png'),
+    credit: 'Get up to $800\ncredit after trade-in',
+  },
+  {
+    image: require('../../assets/images/carrier-tmobile-56586a.png'),
+    credit: 'Get up to $400\ncredit after trade-in',
+  },
+  {
+    image: require('../../assets/images/carrier-verizon-56586a.png'),
+    credit: 'Get up to $800\ncredit after trade-in',
+  },
+];
 
 const services = [
   {
@@ -25,116 +49,224 @@ const accessories = [
     title: 'MagSafe',
     body: 'Snap on a magnetic case, wallet, or both.',
     image: require('../../assets/images/magsafe-56586a.png'),
+    aspect: 1.2,
   },
   {
     title: 'AirTag',
     body: 'Attach one to your keys. Use Find My when misplaced.',
     image: require('../../assets/images/airtag-56586a.png'),
+    aspect: 1.35,
   },
   {
     title: 'AirPods',
     body: 'Magic runs in the family.',
     image: require('../../assets/images/airpods-56586a.png'),
+    aspect: 1.1,
   },
 ];
 
 export function ShopScreen() {
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+    <ScreenScroll style={styles.container} contentContainerStyle={styles.content}>
       <Text style={styles.sectionTitle}>Ways to save on iPhone</Text>
-      <Image
-        source={require('../../assets/images/trade-in-phones-56586a.png')}
-        style={styles.tradeInImage}
-        resizeMode="cover"
-      />
-      <Text style={styles.cardTitle}>Trade in for credit toward a new iPhone.</Text>
-      <LearnMoreLink />
 
-      <Text style={[styles.sectionTitle, styles.sectionSpaced]}>Shopping made simple</Text>
-      {services.map((service) => (
-        <View key={service.title} style={styles.serviceCard}>
-          <Image source={service.icon} style={styles.serviceIcon} resizeMode="contain" />
-          <Text style={styles.serviceTitle}>{service.title}</Text>
-          <Text style={styles.serviceBody}>{service.body}</Text>
+      <SectionCard>
+        <Image
+          source={require('../../assets/images/trade-in-phones-56586a.png')}
+          style={styles.tradeInImage}
+          resizeMode="contain"
+        />
+        <View style={styles.cardBody}>
+          <Text style={styles.cardTitle}>Trade in for credit toward a new iPhone.</Text>
+          <Text style={styles.cardSubtitle}>
+            Get $200–$600 in credit when you trade in iPhone 11 or higher.
+          </Text>
           <LearnMoreLink />
         </View>
-      ))}
+      </SectionCard>
+
+      <CarrierDealsCard carriers={carriers} />
+
+      <CopyImageCard
+        title={'Get 3% Daily Cash back with Apple Card.'}
+        body="And pay for your new iPhone over 24 months, interest‑free when you choose to check out with Apple Card Monthly Installments.**"
+        image={require('../../assets/images/apple-card-56586a.png')}
+        imageAspect={675 / 357}
+      />
+
+      <PromoStackCard
+        title="Why Apple is the best place to buy iPhone."
+        body="You can choose a payment option that works for you, pay less with a trade‑in, connect your new iPhone to your carrier, and get set up quickly. You can also chat with a Specialist anytime."
+        media={require('../../assets/images/why-apple-bg-56586a.png')}
+        mediaAspect={1380 / 560}
+        links={[{ label: 'Learn more' }]}
+      />
+
+      <Text style={[styles.sectionTitle, styles.sectionSpaced]}>Get more out of your iPhone.</Text>
+
+      <AppleOneCard />
+      <AppleTvCard />
+      <AppleMusicCard />
+
+      <PromoStackCard
+        logo={require('../../assets/images/apple-news-logo-56586a.png')}
+        logoWidth={184}
+        logoHeight={39}
+        body={'Get 3 months of Apple News+ free when you buy an iPhone.'}
+        media={require('../../assets/images/apple-news-bg-38c9b7.png')}
+        mediaAspect={675 / 400}
+        links={[{ label: 'Learn more' }]}
+      />
+
+      <PromoStackCard
+        logo={require('../../assets/images/apple-arcade-logo-56586a.png')}
+        logoWidth={180}
+        logoHeight={39}
+        body="Get 3 months of Apple Arcade free when you buy an iPhone."
+        media={require('../../assets/images/apple-arcade-card-bg-2x.png')}
+        mediaAspect={675 / 400}
+        links={[{ label: 'Try it free' }, { label: 'Learn more' }]}
+      />
+
+      <CopyImageCard
+        title="Apple Fitness+"
+        body={'Fitness for everyone.\nNow all you need is iPhone.'}
+        image={require('../../assets/images/fitness-hero-56586a.png')}
+        imageAspect={602 / 299}
+        links={[{ label: 'Learn more' }, { label: 'Try it free' }]}
+      />
+
+      <CopyImageCard
+        title="Apple Gift Card"
+        body="For everything and everyone."
+        image={require('../../assets/images/gift-card-56586a.png')}
+        imageAspect={675 / 319}
+        links={[{ label: 'Learn more' }, { label: 'Buy' }]}
+      />
+
+      <CopyImageCard
+        title={'Introducing\nthe Apple\nResearch app.'}
+        body="The future of health research is you."
+        image={require('../../assets/images/research-app-56586a.png')}
+        imageAspect={766 / 388}
+      />
+
+      <Text style={[styles.sectionTitle, styles.sectionSpaced]}>Shopping made simple</Text>
+      <SectionCard style={styles.servicesCard}>
+        {services.map((service, index) => (
+          <View
+            key={service.title}
+            style={[styles.serviceRow, index < services.length - 1 && styles.serviceRowBorder]}
+          >
+            <Image source={service.icon} style={styles.serviceIcon} resizeMode="contain" />
+            <Text style={styles.serviceTitle}>{service.title}</Text>
+            <Text style={styles.serviceBody}>{service.body}</Text>
+            <LearnMoreLink />
+          </View>
+        ))}
+      </SectionCard>
 
       <Text style={[styles.sectionTitle, styles.sectionSpaced]}>Featured accessories</Text>
       {accessories.map((item) => (
-        <View key={item.title} style={styles.accessoryCard}>
-          <Text style={styles.cardTitle}>{item.title}</Text>
-          <Text style={styles.serviceBody}>{item.body}</Text>
-          <Image source={item.image} style={styles.accessoryImage} resizeMode="contain" />
-          <LearnMoreLink label={`Shop ${item.title}`} />
-        </View>
+        <SectionCard key={item.title} muted>
+          <View style={styles.cardBody}>
+            <Text style={styles.cardTitle}>{item.title}</Text>
+            <Text style={styles.cardSubtitle}>{item.body}</Text>
+          </View>
+          <Image
+            source={item.image}
+            style={[styles.accessoryImage, { aspectRatio: item.aspect }]}
+            resizeMode="contain"
+          />
+          <View style={[styles.cardBody, styles.accessoryFooter]}>
+            <LearnMoreLink label={`Shop ${item.title}`} />
+          </View>
+        </SectionCard>
       ))}
-    </ScrollView>
+    </ScreenScroll>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: colors.white,
-    padding: 20,
+    backgroundColor: colors.bgPage,
+  },
+  content: {
+    paddingTop: 24,
+    paddingHorizontal: layout.screenPaddingX - 4,
   },
   sectionTitle: {
-    fontSize: 28,
-    fontWeight: '700',
+    ...type.sectionTitle,
     color: colors.textPrimary,
     textAlign: 'center',
-    marginBottom: 20,
+    paddingHorizontal: layout.screenPaddingX,
+    marginBottom: 16,
   },
   sectionSpaced: {
-    marginTop: 32,
+    marginTop: 28,
   },
   tradeInImage: {
     width: '100%',
-    height: 180,
-    borderRadius: 12,
-    marginBottom: 16,
+    aspectRatio: 1380 / 410,
+    backgroundColor: colors.white,
+  },
+  cardBody: {
+    paddingHorizontal: 20,
+    paddingTop: 20,
+    alignItems: 'center',
   },
   cardTitle: {
     fontSize: 22,
+    lineHeight: 28,
     fontWeight: '700',
     textAlign: 'center',
-    marginBottom: 12,
+    marginBottom: 8,
     color: colors.textPrimary,
   },
-  serviceCard: {
+  cardSubtitle: {
+    ...type.body,
+    textAlign: 'center',
+    color: colors.textSecondary,
+    marginBottom: 12,
+  },
+  servicesCard: {
+    paddingVertical: 8,
+  },
+  serviceRow: {
     alignItems: 'center',
-    paddingVertical: 24,
-    borderBottomWidth: 1,
+    paddingVertical: 28,
+    paddingHorizontal: 20,
+  },
+  serviceRowBorder: {
+    borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: colors.border,
   },
   serviceIcon: {
     width: 51,
     height: 75,
-    marginBottom: 12,
+    marginBottom: 14,
   },
   serviceTitle: {
     fontSize: 19,
+    lineHeight: 25,
     fontWeight: '700',
     marginBottom: 8,
+    color: colors.textPrimary,
+    textAlign: 'center',
   },
   serviceBody: {
-    fontSize: 17,
+    ...type.body,
     textAlign: 'center',
     color: colors.textPrimary,
-    marginBottom: 8,
-    lineHeight: 25,
-  },
-  accessoryCard: {
-    backgroundColor: colors.bgCard,
-    borderRadius: 16,
-    padding: 20,
-    marginBottom: 16,
-    alignItems: 'center',
+    marginBottom: 10,
   },
   accessoryImage: {
     width: '100%',
-    height: 200,
-    marginVertical: 16,
+    maxHeight: 220,
+    marginVertical: 8,
+  },
+  accessoryFooter: {
+    paddingTop: 0,
+    paddingBottom: 24,
   },
 });

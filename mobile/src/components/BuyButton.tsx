@@ -4,15 +4,17 @@ import { colors } from '../theme/colors';
 interface BuyButtonProps {
   label?: string;
   small?: boolean;
+  centered?: boolean;
   onPress?: () => void;
 }
 
-export function BuyButton({ label = 'Buy', small, onPress }: BuyButtonProps) {
+export function BuyButton({ label = 'Buy', small, centered, onPress }: BuyButtonProps) {
   return (
     <Pressable
       style={({ pressed }) => [
         styles.button,
         small && styles.buttonSmall,
+        centered && styles.buttonCentered,
         pressed && styles.pressed,
       ]}
       onPress={onPress}
@@ -33,6 +35,9 @@ const styles = StyleSheet.create({
   buttonSmall: {
     paddingVertical: 6,
     paddingHorizontal: 14,
+  },
+  buttonCentered: {
+    alignSelf: 'center',
   },
   pressed: {
     opacity: 0.85,

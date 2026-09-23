@@ -281,6 +281,42 @@
   margin-top: 1px;
 }
 
+@media (max-width: 1439px) {
+  .ways-to-save__promo-card {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 0;
+  }
+
+  .ways-to-save__apple-card-copy {
+    position: relative;
+    left: 0;
+    transform: none;
+    width: 100%;
+    height: auto;
+    padding: 48px 28px 12px;
+    box-sizing: border-box;
+  }
+
+  .ways-to-save__apple-card-title,
+  .ways-to-save__apple-card-body {
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
+  .ways-to-save__apple-card-img {
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
 @media (max-width: 1068px) {
   .ways-to-save__row {
     grid-template-columns: 1fr;
@@ -359,18 +395,32 @@
 
   .ways-to-save__why-apple {
     height: auto;
-    min-height: 560px;
-    background-size: cover;
+    min-height: 0;
+    background-image: none !important;
+    display: flex;
+    flex-direction: column;
   }
 
   .ways-to-save__why-apple-copy {
     position: relative;
     top: auto;
+    left: auto;
     transform: none;
     width: 100%;
     height: auto;
-    padding: 134px 40px 48px;
+    padding: 48px 28px 24px;
   }
+
+  .ways-to-save__why-apple-art {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+.ways-to-save__why-apple-art {
+  display: none;
 }
 
 @media (max-width: 734px) {
@@ -386,15 +436,21 @@
     width: calc(100% - 32px);
     max-width: 100%;
     height: auto;
-    min-height: 540px;
+    min-height: 0;
     margin-inline: auto;
-    background-size: cover;
-    background-position: center center;
+    background-image: none !important;
     display: flex;
     flex-direction: column;
     align-items: stretch;
     border-radius: 18px;
     overflow: hidden;
+  }
+
+  .ways-to-save__why-apple-art {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 
   .ways-to-save__why-apple-copy {

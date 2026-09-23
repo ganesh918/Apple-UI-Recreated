@@ -119,6 +119,14 @@ export function WaysToSave() {
             </p>
             <LearnMoreLink size="md" className="ways-to-save__why-apple-link" hideIcon />
           </div>
+          <img
+            src={images.whyAppleBg}
+            alt=""
+            className="ways-to-save__why-apple-art figma-img"
+            width={1380}
+            height={560}
+            aria-hidden="true"
+          />
         </motion.article>
       </div>
     </section>

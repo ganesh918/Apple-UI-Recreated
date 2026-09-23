@@ -1,7 +1,9 @@
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { BuyButton } from '../components/BuyButton';
 import { LearnMoreLink } from '../components/LearnMoreLink';
+import { ScreenScroll } from '../components/ScreenScroll';
 import { colors } from '../theme/colors';
+import { layout, type } from '../theme/layout';
 
 const models = [
   {
@@ -38,91 +40,117 @@ const models = [
 
 export function CompareScreen() {
   return (
-    <ScrollView style={styles.container} horizontal showsHorizontalScrollIndicator={false}>
-      <View style={styles.inner}>
-        <Text style={styles.title}>Which iPhone is right for you?</Text>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.row}>
-          {models.map((model) => (
-            <View key={model.name} style={styles.card}>
-              <Image source={model.phone} style={styles.phone} resizeMode="contain" />
-              <Image source={model.logo} style={styles.logo} resizeMode="contain" />
-              <Text style={styles.tagline}>{model.tagline}</Text>
-              <Text style={styles.price}>{model.price}</Text>
-              {model.isNew && <Text style={styles.new}>New</Text>}
-              <BuyButton small />
+    <ScreenScroll style={styles.container} contentContainerStyle={styles.content}>
+      <Text style={styles.title}>Which iPhone is right for you?</Text>
+
+      <ScrollView
+        horizontal
+        nestedScrollEnabled
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.row}
+        style={styles.carousel}
+      >
+        {models.map((model) => (
+          <View key={model.name} style={styles.card}>
+            {model.isNew ? <Text style={styles.new}>New</Text> : <View style={styles.newSpacer} />}
+            <Image source={model.phone} style={styles.phone} resizeMode="contain" />
+            <Image source={model.logo} style={styles.logo} resizeMode="contain" />
+            <Text style={styles.tagline}>{model.tagline}</Text>
+            <Text style={styles.price}>{model.price}</Text>
+            <View style={styles.cardActions}>
+              <BuyButton small centered />
               <LearnMoreLink />
             </View>
-          ))}
-        </ScrollView>
-        <View style={styles.footerLinks}>
-          <LearnMoreLink label="Compare all iPhone models" />
-          <LearnMoreLink label="Shop iPhone" />
-        </View>
+          </View>
+        ))}
+      </ScrollView>
+
+      <View style={styles.footerLinks}>
+        <LearnMoreLink label="Compare all iPhone models" />
+        <LearnMoreLink label="Shop iPhone" />
       </View>
-    </ScrollView>
+    </ScreenScroll>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: colors.white,
   },
-  inner: {
-    paddingVertical: 32,
-    minWidth: '100%',
+  content: {
+    paddingTop: 28,
+    width: '100%',
+    alignItems: 'stretch',
   },
   title: {
-    fontSize: 28,
-    fontWeight: '700',
+    ...type.sectionTitle,
     textAlign: 'center',
     color: colors.textPrimary,
-    paddingHorizontal: 20,
-    marginBottom: 24,
+    paddingHorizontal: layout.screenPaddingX,
+    marginBottom: 28,
+  },
+  carousel: {
+    flexGrow: 0,
   },
   row: {
-    paddingHorizontal: 16,
+    paddingHorizontal: layout.screenPaddingX,
+    paddingBottom: 4,
     gap: 16,
   },
   card: {
-    width: 240,
-    backgroundColor: colors.white,
-    borderRadius: 16,
-    padding: 20,
+    width: 260,
+    backgroundColor: colors.bgLighter,
+    borderRadius: layout.cardRadius,
+    paddingVertical: 24,
+    paddingHorizontal: 16,
     alignItems: 'center',
-    borderWidth: 1,
+    borderWidth: StyleSheet.hairlineWidth,
     borderColor: colors.border,
-  },
-  phone: {
-    width: 140,
-    height: 180,
-    marginBottom: 12,
-  },
-  logo: {
-    height: 20,
-    width: 120,
-    marginBottom: 8,
-  },
-  tagline: {
-    fontSize: 17,
-    fontWeight: '700',
-    textAlign: 'center',
-    marginBottom: 8,
-  },
-  price: {
-    fontSize: 14,
-    color: colors.textPrimary,
-    marginBottom: 12,
   },
   new: {
     color: colors.new,
     fontSize: 12,
+    fontWeight: '600',
     marginBottom: 8,
+    minHeight: 16,
+  },
+  newSpacer: {
+    height: 24,
+  },
+  phone: {
+    width: 120,
+    height: 160,
+    marginBottom: 16,
+  },
+  logo: {
+    height: 22,
+    width: 130,
+    marginBottom: 10,
+  },
+  tagline: {
+    fontSize: 17,
+    fontWeight: '600',
+    textAlign: 'center',
+    color: colors.textPrimary,
+    marginBottom: 6,
+    lineHeight: 22,
+  },
+  price: {
+    fontSize: 14,
+    color: colors.textSecondary,
+    marginBottom: 16,
+    lineHeight: 20,
+  },
+  cardActions: {
+    alignItems: 'center',
+    gap: 12,
+    width: '100%',
   },
   footerLinks: {
-    marginTop: 24,
-    paddingHorizontal: 20,
-    gap: 12,
+    marginTop: 32,
+    paddingHorizontal: layout.screenPaddingX,
+    gap: 16,
     alignItems: 'center',
+    paddingBottom: 8,
   },
 });

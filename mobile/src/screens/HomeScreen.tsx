@@ -1,7 +1,9 @@
-import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { BuyButton } from '../components/BuyButton';
 import { LearnMoreLink } from '../components/LearnMoreLink';
+import { ScreenScroll } from '../components/ScreenScroll';
 import { colors } from '../theme/colors';
+import { layout, type } from '../theme/layout';
 
 const products = [
   {
@@ -12,6 +14,7 @@ const products = [
     headline: 'Two great sizes.\nNow with a splash of yellow.',
     price: 'From $799 or $33.29/mo. for 24 mo.',
     bg: colors.white,
+    heroAspect: 1.45,
   },
   {
     id: '14-pro',
@@ -21,6 +24,7 @@ const products = [
     price: 'From $999 or $41.62/mo. for 24 mo.',
     bg: colors.black,
     light: true,
+    heroAspect: 1.35,
   },
   {
     id: 'se',
@@ -29,139 +33,172 @@ const products = [
     headline: 'Love the power.\nLove the price.',
     price: 'From $429 or $17.87/mo. for 24 mo.',
     bg: colors.bgLighter,
+    heroAspect: 1.55,
   },
 ];
 
 export function HomeScreen() {
   return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+    <ScreenScroll style={styles.container} contentContainerStyle={styles.content}>
       <View style={styles.promoBanner}>
         <Text style={styles.promoText}>
-          Get $200–$600 in credit toward iPhone 14 or iPhone 14 Pro when you trade in iPhone 11 or higher.
+          Get $200–$600 in credit toward iPhone 14 or iPhone 14 Pro when you trade in iPhone 11 or
+          higher.
         </Text>
       </View>
 
       {products.map((product) => (
-        <View key={product.id} style={[styles.hero, { backgroundColor: product.bg }]}>
-          {product.badge && <Text style={styles.newBadge}>{product.badge}</Text>}
-          <Image source={product.logo} style={styles.logo} resizeMode="contain" />
-          <Text style={[styles.headline, product.light && styles.headlineLight]}>
-            {product.headline}
-          </Text>
-          <Text style={[styles.price, product.light && styles.headlineLight]}>
-            {product.price}
-          </Text>
-          <View style={styles.ctaRow}>
-            <BuyButton />
-            <LearnMoreLink light={product.light} />
+        <View
+          key={product.id}
+          style={[styles.hero, { backgroundColor: product.bg }]}
+        >
+          <View style={styles.heroCopy}>
+            {product.badge ? (
+              <Text style={styles.newBadge}>{product.badge}</Text>
+            ) : null}
+            <Image source={product.logo} style={styles.logo} resizeMode="contain" />
+            <Text style={[styles.headline, product.light && styles.textLight]}>
+              {product.headline}
+            </Text>
+            <Text style={[styles.price, product.light && styles.textLight]}>{product.price}</Text>
+            <View style={styles.ctaRow}>
+              <BuyButton centered />
+              <LearnMoreLink light={product.light} />
+            </View>
           </View>
-          <Image source={product.hero} style={styles.heroImage} resizeMode="contain" />
+          <Image
+            source={product.hero}
+            style={[styles.heroImage, { aspectRatio: product.heroAspect }]}
+            resizeMode="contain"
+          />
         </View>
       ))}
 
-      <View style={styles.guidedTour}>
-        <Image
-          source={require('../../assets/images/guided-tour-bg-17f807.png')}
-          style={styles.guidedTourBg}
-          resizeMode="cover"
-        />
+      <ImageBackground
+        source={require('../../assets/images/guided-tour-bg-17f807.png')}
+        style={styles.guidedTour}
+        imageStyle={styles.guidedTourImage}
+        resizeMode="cover"
+      >
+        <View style={styles.guidedTourScrim} />
         <View style={styles.guidedTourContent}>
           <Text style={styles.guidedEyebrow}>A Guided Tour of</Text>
           <Text style={styles.guidedTitle}>iPhone 14 &{'\n'}iPhone 14 Pro</Text>
-          <BuyButton label="Watch the film" />
+          <BuyButton label="Watch the film" centered />
         </View>
-      </View>
-    </ScrollView>
+      </ImageBackground>
+    </ScreenScroll>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: colors.bgPage,
+  },
+  content: {
+    flexGrow: 1,
+    width: '100%',
+    alignItems: 'stretch',
   },
   promoBanner: {
     backgroundColor: colors.bgLight,
-    padding: 12,
-    borderBottomWidth: 1,
+    paddingVertical: 12,
+    paddingHorizontal: layout.screenPaddingX,
+    borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: colors.border,
   },
   promoText: {
-    fontSize: 12,
+    ...type.caption,
     textAlign: 'center',
     color: colors.textPrimary,
-    lineHeight: 16,
+    maxWidth: layout.maxContentWidth,
+    alignSelf: 'center',
   },
   hero: {
-    paddingTop: 32,
-    paddingHorizontal: 20,
-    paddingBottom: 24,
+    marginBottom: layout.sectionGap,
+    overflow: 'hidden',
+  },
+  heroCopy: {
+    paddingTop: 36,
+    paddingHorizontal: layout.screenPaddingX,
+    paddingBottom: 8,
     alignItems: 'center',
+    maxWidth: layout.maxContentWidth,
+    alignSelf: 'center',
+    width: '100%',
   },
   newBadge: {
     color: colors.new,
-    fontSize: 28,
-    fontWeight: '700',
-    marginBottom: 4,
+    fontSize: 21,
+    fontWeight: '600',
+    marginBottom: 8,
+    letterSpacing: -0.02 * 21,
   },
   logo: {
-    height: 22,
-    width: 140,
-    marginBottom: 12,
+    height: 24,
+    width: 160,
+    marginBottom: 14,
   },
   headline: {
-    fontSize: 32,
-    fontWeight: '700',
+    ...type.heroHeadline,
     textAlign: 'center',
     color: colors.textPrimary,
-    lineHeight: 38,
-    marginBottom: 12,
+    marginBottom: 10,
   },
-  headlineLight: {
+  textLight: {
     color: colors.bgLight,
   },
   price: {
-    fontSize: 17,
+    ...type.body,
     textAlign: 'center',
     color: colors.textPrimary,
-    marginBottom: 16,
+    marginBottom: 18,
   },
   ctaRow: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     alignItems: 'center',
-    gap: 20,
-    marginBottom: 24,
+    justifyContent: 'center',
+    columnGap: 20,
+    rowGap: 12,
+    marginBottom: 8,
   },
   heroImage: {
     width: '100%',
-    height: 220,
+    maxHeight: 320,
+    marginTop: 4,
   },
   guidedTour: {
-    margin: 16,
-    borderRadius: 24,
+    marginHorizontal: 16,
+    marginTop: 8,
+    borderRadius: layout.cardRadius,
     overflow: 'hidden',
-    minHeight: 360,
+    minHeight: 380,
+    justifyContent: 'flex-end',
   },
-  guidedTourBg: {
-    ...StyleSheet.absoluteFill,
-    width: '100%',
-    height: '100%',
+  guidedTourImage: {
+    borderRadius: layout.cardRadius,
+  },
+  guidedTourScrim: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0, 0, 0, 0.15)',
   },
   guidedTourContent: {
-    padding: 32,
-    paddingTop: 120,
+    paddingHorizontal: 28,
+    paddingVertical: 32,
+    zIndex: 1,
+    alignItems: 'flex-start',
   },
   guidedEyebrow: {
     color: colors.white,
-    fontSize: 18,
-    fontWeight: '700',
-    marginBottom: 8,
+    ...type.eyebrow,
+    marginBottom: 6,
   },
   guidedTitle: {
     color: colors.white,
-    fontSize: 32,
+    fontSize: 28,
+    lineHeight: 34,
     fontWeight: '700',
-    lineHeight: 38,
     marginBottom: 20,
   },
 });

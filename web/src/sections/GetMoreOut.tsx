@@ -181,6 +181,14 @@ export function GetMoreOut() {
               Learn more
             </LearnMoreLink>
           </div>
+          <img
+            src={images.appleNewsBg}
+            alt=""
+            className="get-more-out__news-art figma-img"
+            width={675}
+            height={616}
+            aria-hidden="true"
+          />
         </GetMoreCard>
 
         {/* Apple Arcade — Figma #0:2113 */}
@@ -207,6 +215,14 @@ export function GetMoreOut() {
               </LearnMoreLink>
             </div>
           </div>
+          <img
+            src={images.appleArcadeCardBg}
+            alt=""
+            className="get-more-out__arcade-art figma-img"
+            width={675}
+            height={616}
+            aria-hidden="true"
+          />
         </GetMoreCard>
 
         {/* Apple Fitness+ — Figma #0:2126 */}
