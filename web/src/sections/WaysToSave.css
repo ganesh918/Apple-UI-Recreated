@@ -10,16 +10,19 @@
 .ways-to-save__content {
   padding-top: 70px;
   padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Trade-in — Figma #0:1900 */
 .ways-to-save__trade-in {
   position: relative;
-  width: 1380px;
-  max-width: calc(100% - 60px);
+  width: min(1380px, calc(100% - 60px));
   margin: 0 auto 30px;
   height: 717px;
   background: var(--color-white);
+  overflow: hidden;
 }
 
 .ways-to-save__trade-in-copy {
@@ -68,31 +71,35 @@
 
 .ways-to-save__trade-in-img {
   position: absolute;
-  top: 307px;
   left: 0;
-  width: 1380px;
-  height: 410px;
-  max-width: none;
-  object-fit: fill;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1380 / 410;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center bottom;
 }
 
-/* Carrier + Apple Card row — Figma #0:1910 + #0:1930 */
+/* Carrier + Apple Card row — Figma #0:1910 + #0:1930 (675 + 30 + 675 = 1380) */
 .ways-to-save__row {
   display: grid;
-  grid-template-columns: 675px 675px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 30px;
-  width: 1380px;
-  max-width: calc(100% - 60px);
+  width: min(1380px, calc(100% - 60px));
   margin: 0 auto 30px;
+  box-sizing: border-box;
 }
 
 .ways-to-save__promo-card {
   position: relative;
-  width: 675px;
+  width: 100%;
+  min-width: 0;
   height: 757.19px;
   background: var(--color-white);
   overflow: hidden;
-  flex-shrink: 0;
+  justify-self: stretch;
 }
 
 .ways-to-save__carrier-head {
@@ -185,8 +192,10 @@
 .ways-to-save__apple-card-copy {
   position: absolute;
   top: 0;
-  left: 79.5px;
+  left: 50%;
+  transform: translateX(-50%);
   width: 516px;
+  max-width: calc(100% - 40px);
   height: 314px;
   text-align: center;
   box-sizing: border-box;
@@ -218,19 +227,21 @@
 
 .ways-to-save__apple-card-img {
   position: absolute;
-  top: 400.19px;
   left: 0;
-  width: 675px;
-  height: 357px;
-  max-width: none;
-  object-fit: fill;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 675 / 357;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center bottom;
 }
 
 /* Why Apple — Figma #0:1939 */
 .ways-to-save__why-apple {
   position: relative;
-  width: 1380px;
-  max-width: calc(100% - 60px);
+  width: min(1380px, calc(100% - 60px));
   margin: 0 auto;
   height: 560px;
   background-size: 1380px 560px;
@@ -286,7 +297,6 @@
   .ways-to-save__trade-in {
     height: auto;
     min-height: 717px;
-    padding-bottom: 410px;
   }
 
   .ways-to-save__trade-in-copy {

@@ -16,14 +16,16 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
+  /* Single page scroll: clip horizontal overflow on the viewport only */
   overflow-x: clip;
+  overflow-y: auto;
 }
 
 #root {
   width: 100%;
   max-width: 100%;
   min-height: 100%;
-  overflow-x: clip;
+  overflow: visible;
 }
 
 .hero-product[id],
@@ -42,7 +44,7 @@ body {
   background: var(--color-bg-page);
   color: var(--color-text-primary);
   min-width: 320px;
-  overflow-x: hidden;
+  overflow: visible;
 }
 
 img {

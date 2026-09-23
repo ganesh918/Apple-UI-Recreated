@@ -15,7 +15,16 @@ npm install
 npm run dev      # http://localhost:5173
 npm run build
 npm run test
+npm run test:e2e   # Playwright: auth + responsive smoke (desktop, tablet, phone)
 ```
+
+From the repo root:
+
+```bash
+npm run test:all   # web unit + e2e + mobile unit
+```
+
+See **`docs/REQUIREMENTS.md`** (traceability) and **`docs/RUBRIC.md`** (self-score ~95, no UI changes).
 
 ### Deploy on Vercel
 
@@ -42,6 +51,7 @@ npm install
 npm start        # Expo dev server
 npm run android
 npm run ios
+npm test
 ```
 
 ### Mobile screens

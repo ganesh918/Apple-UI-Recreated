@@ -1,0 +1,10 @@
+{
+  "name": "figma-apple-ui",
+  "private": true,
+  "scripts": {
+    "test:web": "npm run test --prefix web",
+    "test:e2e": "npm run test:e2e --prefix web",
+    "test:mobile": "npm run test --prefix mobile",
+    "test:all": "npm run test --prefix web && npm run test:e2e --prefix web && npm run test --prefix mobile"
+  }
+}
