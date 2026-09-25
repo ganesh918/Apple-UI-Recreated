@@ -2,6 +2,7 @@
   "name": "figma-apple-ui",
   "private": true,
   "scripts": {
+    "build:vercel": "npm run build --prefix web && npm run build:web --prefix mobile",
     "test:web": "npm run test --prefix web",
     "test:e2e": "npm run test:e2e --prefix web",
     "test:mobile": "npm run test --prefix mobile",

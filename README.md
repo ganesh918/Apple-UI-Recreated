@@ -28,12 +28,17 @@ See **`docs/REQUIREMENTS.md`** (traceability) and **`docs/RUBRIC.md`** (self-sco
 
 ### Deploy on Vercel
 
-This repo’s app lives in **`web/`**. Either:
+Use the **repository root** as the Vercel project root (leave **Root Directory** empty). Root **`vercel.json`** runs:
 
-1. **Recommended:** In the Vercel project → **Settings → General → Root Directory**, set **`web`**, then redeploy (Build: `npm run build`, Output: `dist`), or  
-2. Leave Root Directory empty and use the root **`vercel.json`**, which builds `web/` and publishes `web/dist`.
+- `npm run build:vercel` → Vite site in **`web/dist`** plus Expo **React Native Web** export in **`web/dist/m`**
+- **Desktop / wide screens:** [https://apple-ui-recreated.vercel.app/](https://apple-ui-recreated.vercel.app/) — responsive React landing page  
+- **Phones & narrow viewports:** `/` redirects to **`/m/`** — same UI as the Expo app (tab navigator: iPhone, Compare, Shop), rendered with React Native Web
 
-After changing settings, trigger **Redeploy** on the latest commit.
+Open the mobile experience directly: [https://apple-ui-recreated.vercel.app/m/](https://apple-ui-recreated.vercel.app/m/)
+
+Do **not** set Vercel Root Directory to `web` only, or the `/m` React Native bundle will not be published.
+
+After pushing changes, trigger **Redeploy** on the latest commit.
 
 ### Features
 
@@ -49,6 +54,8 @@ After changing settings, trigger **Redeploy** on the latest commit.
 cd mobile
 npm install
 npm start        # Expo dev server
+npm run web      # React Native Web in the browser (local)
+npm run build:web  # static export → ../web/dist/m (used by Vercel)
 npm run android
 npm run ios
 npm test

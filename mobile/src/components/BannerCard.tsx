@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     borderRadius: layout.cardRadius,
   },
   scrim: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
     backgroundColor: 'rgba(255, 255, 255, 0.08)',
   },
   scrimDark: {

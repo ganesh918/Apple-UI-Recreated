@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
     borderRadius: layout.cardRadius,
   },
   guidedTourScrim: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
     backgroundColor: 'rgba(0, 0, 0, 0.15)',
   },
   guidedTourContent: {
