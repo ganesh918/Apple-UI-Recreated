@@ -19,6 +19,12 @@
   justify-content: space-between;
   padding: 0 221px;
   box-sizing: border-box;
+  position: relative;
+}
+
+.global-nav__hamburger,
+.global-nav__mobile-apple {
+  display: none;
 }
 
 .global-nav__apple-wrap {
@@ -144,25 +150,219 @@
   align-items: center;
   padding: 0 9px;
   height: 44px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 6px;
 }
 
+.global-nav__icon:focus-visible,
+.global-nav__hamburger:focus-visible {
+  outline: 2px solid var(--color-buy);
+  outline-offset: 2px;
+}
+
+/* —— Mobile hamburger sheet (≤1068px) —— */
+
+.global-nav__mobile-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  pointer-events: auto;
+}
+
+.global-nav__mobile-backdrop {
+  position: absolute;
+  inset: 0;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.48);
+  cursor: pointer;
+  animation: global-nav-fade-in 0.28s ease-out;
+}
+
+.global-nav__mobile-sheet {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: min(78vh, 640px);
+  background: var(--color-bg-light);
+  border-radius: 18px 18px 0 0;
+  box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  animation: global-nav-sheet-up 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+}
+
+.global-nav__mobile-sheet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px 10px;
+  flex-shrink: 0;
+}
+
+.global-nav__mobile-sheet-title {
+  font: 600 17px/22px var(--font-family);
+  letter-spacing: -0.022em;
+  color: var(--color-text-primary);
+}
+
+.global-nav__mobile-close {
+  border: none;
+  background: transparent;
+  font: 400 17px/22px var(--font-family);
+  letter-spacing: -0.022em;
+  color: var(--color-link);
+  cursor: pointer;
+  padding: 4px 0;
+}
+
+.global-nav__mobile-close:hover {
+  text-decoration: underline;
+}
+
+.global-nav__mobile-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 22px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.global-nav__mobile-list li {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.global-nav__mobile-link {
+  display: block;
+  padding: 16px 0;
+  font: 400 17px/22px var(--font-family);
+  letter-spacing: -0.022em;
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+
+.global-nav__mobile-link:hover {
+  color: var(--color-link);
+}
+
+.global-nav__mobile-account {
+  padding: 16px 22px 8px;
+  border-top: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.global-nav__mobile-account-name {
+  margin: 0 0 8px;
+  font: 600 14px/20px var(--font-family);
+  color: var(--color-text-primary);
+}
+
+.global-nav__mobile-signout {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font: 400 17px/22px var(--font-family);
+  color: var(--color-link);
+  cursor: pointer;
+}
+
+@keyframes global-nav-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes global-nav-sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 
 @media (max-width: 1068px) {
   .global-nav__inner {
-    padding: 0 48px;
+    padding: 0 16px;
+    display: grid;
+    grid-template-columns: 44px 1fr auto;
+    align-items: center;
+    gap: 0;
+  }
+
+  .global-nav__hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    grid-column: 1;
+    justify-self: start;
+  }
+
+  .global-nav__hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+    width: 17px;
+    height: 14px;
+  }
+
+  .global-nav__hamburger-icon span {
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: var(--color-text-primary);
+    border-radius: 1px;
+  }
+
+  .global-nav__mobile-apple {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: 2;
+    justify-self: center;
+    height: 44px;
+    padding: 0 8px;
+  }
+
+  .global-nav__apple-wrap--desktop {
+    display: none;
   }
 
   .global-nav__list {
+    display: none;
+  }
+
+  .global-nav__actions {
+    grid-column: 3;
+    justify-self: end;
+    gap: 0;
+  }
+}
+
+@media (min-width: 1069px) {
+  .global-nav__mobile-layer {
     display: none;
   }
 }
 
 @media (max-width: 734px) {
   .global-nav__inner {
-    padding: 0 16px;
-  }
-
-  .global-nav__actions {
-    gap: 0;
+    padding: 0 12px;
   }
 }

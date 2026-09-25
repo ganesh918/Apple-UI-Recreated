@@ -19,6 +19,20 @@ test.describe('Mobile landing (/mobile)', () => {
     await expect(page.getByRole('link', { name: /^Compare$/i })).toBeVisible();
     await expect(page.getByText(/Two great sizes/i)).toBeVisible();
   });
+
+  test('hamburger menu lists Apple global nav items', async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name !== 'mobile-chrome', 'Mobile viewport');
+    await page.goto('/mobile');
+    await page.getByRole('button', { name: 'Menu' }).click();
+    const dialog = page.getByRole('dialog', { name: 'Menu' });
+    await expect(dialog).toBeVisible();
+    await expect(dialog.getByRole('link', { name: 'Store' })).toBeVisible();
+    await expect(dialog.getByRole('link', { name: 'Mac' })).toBeVisible();
+    await expect(dialog.getByRole('link', { name: 'iPhone' })).toBeVisible();
+    await expect(dialog.getByRole('link', { name: 'Support' })).toBeVisible();
+    await dialog.getByRole('button', { name: 'Close' }).click();
+    await expect(dialog).toBeHidden();
+  });
 });
 
 test.describe('Authentication', () => {
