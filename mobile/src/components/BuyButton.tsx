@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text } from 'react-native';
 import { colors } from '../theme/colors';
+import { fontFamily } from '../theme/fonts';
 
 interface BuyButtonProps {
   label?: string;
@@ -44,6 +45,7 @@ const styles = StyleSheet.create({
     transform: [{ scale: 0.98 }],
   },
   label: {
+    fontFamily,
     color: colors.white,
     fontSize: 17,
     fontWeight: '400',

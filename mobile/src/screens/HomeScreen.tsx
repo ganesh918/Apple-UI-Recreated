@@ -1,9 +1,12 @@
-import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
+import { AspectImage } from '../components/AspectImage';
 import { BuyButton } from '../components/BuyButton';
 import { LearnMoreLink } from '../components/LearnMoreLink';
 import { ScreenScroll } from '../components/ScreenScroll';
 import { colors } from '../theme/colors';
 import { layout, type } from '../theme/layout';
+
+const guidedTourBg = require('../../assets/images/guided-tour-bg-17f807.png');
 
 const products = [
   {
@@ -14,7 +17,6 @@ const products = [
     headline: 'Two great sizes.\nNow with a splash of yellow.',
     price: 'From $799 or $33.29/mo. for 24 mo.',
     bg: colors.white,
-    heroAspect: 1.45,
   },
   {
     id: '14-pro',
@@ -24,7 +26,6 @@ const products = [
     price: 'From $999 or $41.62/mo. for 24 mo.',
     bg: colors.black,
     light: true,
-    heroAspect: 1.35,
   },
   {
     id: 'se',
@@ -33,7 +34,6 @@ const products = [
     headline: 'Love the power.\nLove the price.',
     price: 'From $429 or $17.87/mo. for 24 mo.',
     bg: colors.bgLighter,
-    heroAspect: 1.55,
   },
 ];
 
@@ -48,10 +48,7 @@ export function HomeScreen() {
       </View>
 
       {products.map((product) => (
-        <View
-          key={product.id}
-          style={[styles.hero, { backgroundColor: product.bg }]}
-        >
+        <View key={product.id} style={[styles.hero, { backgroundColor: product.bg }]}>
           <View style={styles.heroCopy}>
             {product.badge ? (
               <Text style={styles.newBadge}>{product.badge}</Text>
@@ -66,27 +63,25 @@ export function HomeScreen() {
               <LearnMoreLink light={product.light} />
             </View>
           </View>
-          <Image
+          <AspectImage
             source={product.hero}
-            style={[styles.heroImage, { aspectRatio: product.heroAspect }]}
             resizeMode="contain"
+            containerStyle={styles.heroImageWrap}
           />
         </View>
       ))}
 
-      <ImageBackground
-        source={require('../../assets/images/guided-tour-bg-17f807.png')}
-        style={styles.guidedTour}
-        imageStyle={styles.guidedTourImage}
-        resizeMode="cover"
-      >
-        <View style={styles.guidedTourScrim} />
-        <View style={styles.guidedTourContent}>
-          <Text style={styles.guidedEyebrow}>A Guided Tour of</Text>
-          <Text style={styles.guidedTitle}>iPhone 14 &{'\n'}iPhone 14 Pro</Text>
-          <BuyButton label="Watch the film" centered />
+      <View style={styles.guidedTour}>
+        <AspectImage source={guidedTourBg} resizeMode="cover" />
+        <View style={styles.guidedTourOverlay}>
+          <View style={styles.guidedTourScrim} />
+          <View style={styles.guidedTourContent}>
+            <Text style={styles.guidedEyebrow}>A Guided Tour of</Text>
+            <Text style={styles.guidedTitle}>iPhone 14 &{'\n'}iPhone 14 Pro</Text>
+            <BuyButton label="Watch the film" centered />
+          </View>
         </View>
-      </ImageBackground>
+      </View>
     </ScreenScroll>
   );
 }
@@ -135,8 +130,8 @@ const styles = StyleSheet.create({
     letterSpacing: -0.02 * 21,
   },
   logo: {
-    height: 24,
-    width: 160,
+    height: 28,
+    width: 180,
     marginBottom: 14,
   },
   headline: {
@@ -159,29 +154,27 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'center',
-    columnGap: 20,
-    rowGap: 12,
+    gap: 16,
     marginBottom: 8,
   },
-  heroImage: {
-    width: '100%',
-    maxHeight: 320,
+  heroImageWrap: {
     marginTop: 4,
+    paddingHorizontal: 4,
   },
   guidedTour: {
-    marginHorizontal: 16,
+    marginHorizontal: layout.screenPaddingX - 4,
     marginTop: 8,
     borderRadius: layout.cardRadius,
     overflow: 'hidden',
-    minHeight: 380,
-    justifyContent: 'flex-end',
+    position: 'relative',
   },
-  guidedTourImage: {
-    borderRadius: layout.cardRadius,
+  guidedTourOverlay: {
+    ...StyleSheet.absoluteFill,
+    justifyContent: 'flex-end',
   },
   guidedTourScrim: {
     ...StyleSheet.absoluteFill,
-    backgroundColor: 'rgba(0, 0, 0, 0.15)',
+    backgroundColor: 'rgba(0, 0, 0, 0.22)',
   },
   guidedTourContent: {
     paddingHorizontal: 28,

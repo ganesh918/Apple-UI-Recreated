@@ -2,6 +2,7 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 import { AppleMusicCard } from '../components/AppleMusicCard';
 import { AppleOneCard } from '../components/AppleOneCard';
 import { AppleTvCard } from '../components/AppleTvCard';
+import { AspectImage } from '../components/AspectImage';
 import { PromoStackCard } from '../components/PromoStackCard';
 import { CarrierDealsCard } from '../components/CarrierDealsCard';
 import { CopyImageCard } from '../components/CopyImageCard';
@@ -10,6 +11,8 @@ import { ScreenScroll } from '../components/ScreenScroll';
 import { SectionCard } from '../components/SectionCard';
 import { colors } from '../theme/colors';
 import { layout, type } from '../theme/layout';
+
+const tradeInImage = require('../../assets/images/trade-in-phones-56586a.png');
 
 const carriers = [
   {
@@ -49,19 +52,16 @@ const accessories = [
     title: 'MagSafe',
     body: 'Snap on a magnetic case, wallet, or both.',
     image: require('../../assets/images/magsafe-56586a.png'),
-    aspect: 1.2,
   },
   {
     title: 'AirTag',
     body: 'Attach one to your keys. Use Find My when misplaced.',
     image: require('../../assets/images/airtag-56586a.png'),
-    aspect: 1.35,
   },
   {
     title: 'AirPods',
     body: 'Magic runs in the family.',
     image: require('../../assets/images/airpods-56586a.png'),
-    aspect: 1.1,
   },
 ];
 
@@ -71,11 +71,7 @@ export function ShopScreen() {
       <Text style={styles.sectionTitle}>Ways to save on iPhone</Text>
 
       <SectionCard>
-        <Image
-          source={require('../../assets/images/trade-in-phones-56586a.png')}
-          style={styles.tradeInImage}
-          resizeMode="contain"
-        />
+        <AspectImage source={tradeInImage} containerStyle={styles.tradeInWrap} resizeMode="contain" />
         <View style={styles.cardBody}>
           <Text style={styles.cardTitle}>Trade in for credit toward a new iPhone.</Text>
           <Text style={styles.cardSubtitle}>
@@ -91,14 +87,12 @@ export function ShopScreen() {
         title={'Get 3% Daily Cash back with Apple Card.'}
         body="And pay for your new iPhone over 24 months, interest‑free when you choose to check out with Apple Card Monthly Installments.**"
         image={require('../../assets/images/apple-card-56586a.png')}
-        imageAspect={675 / 357}
       />
 
       <PromoStackCard
         title="Why Apple is the best place to buy iPhone."
         body="You can choose a payment option that works for you, pay less with a trade‑in, connect your new iPhone to your carrier, and get set up quickly. You can also chat with a Specialist anytime."
         media={require('../../assets/images/why-apple-bg-56586a.png')}
-        mediaAspect={1380 / 560}
         links={[{ label: 'Learn more' }]}
       />
 
@@ -114,7 +108,6 @@ export function ShopScreen() {
         logoHeight={39}
         body={'Get 3 months of Apple News+ free when you buy an iPhone.'}
         media={require('../../assets/images/apple-news-bg-38c9b7.png')}
-        mediaAspect={675 / 400}
         links={[{ label: 'Learn more' }]}
       />
 
@@ -124,7 +117,6 @@ export function ShopScreen() {
         logoHeight={39}
         body="Get 3 months of Apple Arcade free when you buy an iPhone."
         media={require('../../assets/images/apple-arcade-card-bg-2x.png')}
-        mediaAspect={675 / 400}
         links={[{ label: 'Try it free' }, { label: 'Learn more' }]}
       />
 
@@ -132,7 +124,6 @@ export function ShopScreen() {
         title="Apple Fitness+"
         body={'Fitness for everyone.\nNow all you need is iPhone.'}
         image={require('../../assets/images/fitness-hero-56586a.png')}
-        imageAspect={602 / 299}
         links={[{ label: 'Learn more' }, { label: 'Try it free' }]}
       />
 
@@ -140,7 +131,6 @@ export function ShopScreen() {
         title="Apple Gift Card"
         body="For everything and everyone."
         image={require('../../assets/images/gift-card-56586a.png')}
-        imageAspect={675 / 319}
         links={[{ label: 'Learn more' }, { label: 'Buy' }]}
       />
 
@@ -148,7 +138,6 @@ export function ShopScreen() {
         title={'Introducing\nthe Apple\nResearch app.'}
         body="The future of health research is you."
         image={require('../../assets/images/research-app-56586a.png')}
-        imageAspect={766 / 388}
       />
 
       <Text style={[styles.sectionTitle, styles.sectionSpaced]}>Shopping made simple</Text>
@@ -173,11 +162,7 @@ export function ShopScreen() {
             <Text style={styles.cardTitle}>{item.title}</Text>
             <Text style={styles.cardSubtitle}>{item.body}</Text>
           </View>
-          <Image
-            source={item.image}
-            style={[styles.accessoryImage, { aspectRatio: item.aspect }]}
-            resizeMode="contain"
-          />
+          <AspectImage source={item.image} containerStyle={styles.accessoryWrap} resizeMode="contain" />
           <View style={[styles.cardBody, styles.accessoryFooter]}>
             <LearnMoreLink label={`Shop ${item.title}`} />
           </View>
@@ -194,6 +179,9 @@ const styles = StyleSheet.create({
   content: {
     paddingTop: 24,
     paddingHorizontal: layout.screenPaddingX - 4,
+    maxWidth: layout.maxContentWidth + 40,
+    width: '100%',
+    alignSelf: 'center',
   },
   sectionTitle: {
     ...type.sectionTitle,
@@ -205,9 +193,7 @@ const styles = StyleSheet.create({
   sectionSpaced: {
     marginTop: 28,
   },
-  tradeInImage: {
-    width: '100%',
-    aspectRatio: 1380 / 410,
+  tradeInWrap: {
     backgroundColor: colors.white,
   },
   cardBody: {
@@ -260,10 +246,9 @@ const styles = StyleSheet.create({
     color: colors.textPrimary,
     marginBottom: 10,
   },
-  accessoryImage: {
-    width: '100%',
-    maxHeight: 220,
-    marginVertical: 8,
+  accessoryWrap: {
+    marginVertical: 4,
+    paddingHorizontal: 12,
   },
   accessoryFooter: {
     paddingTop: 0,

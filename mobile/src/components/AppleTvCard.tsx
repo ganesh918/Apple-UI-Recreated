@@ -1,7 +1,10 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
+import { AspectImage } from './AspectImage';
 import { LearnMoreLink } from './LearnMoreLink';
 import { colors } from '../theme/colors';
 import { layout, type } from '../theme/layout';
+
+const showcaseImage = require('../../assets/images/apple-tv-showcase-2x.png');
 
 export function AppleTvCard() {
   return (
@@ -21,10 +24,10 @@ export function AppleTvCard() {
           <LearnMoreLink label="Learn more" light />
         </View>
       </View>
-      <Image
-        source={require('../../assets/images/apple-tv-showcase-2x.png')}
-        style={styles.showcase}
-        resizeMode="cover"
+      <AspectImage
+        source={showcaseImage}
+        resizeMode="contain"
+        containerStyle={styles.showcaseWrap}
       />
     </View>
   );
@@ -42,7 +45,7 @@ const styles = StyleSheet.create({
   copy: {
     paddingHorizontal: 22,
     paddingTop: 32,
-    paddingBottom: 20,
+    paddingBottom: 16,
     alignItems: 'center',
   },
   logo: {
@@ -64,8 +67,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 10,
   },
-  showcase: {
-    width: '100%',
-    aspectRatio: 675 / 344,
+  showcaseWrap: {
+    backgroundColor: colors.black,
   },
 });

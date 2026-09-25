@@ -8,6 +8,7 @@ import { HomeScreen } from './src/screens/HomeScreen';
 import { CompareScreen } from './src/screens/CompareScreen';
 import { ShopScreen } from './src/screens/ShopScreen';
 import { colors } from './src/theme/colors';
+import { fontFamily } from './src/theme/fonts';
 
 const Tab = createBottomTabNavigator();
 
@@ -84,6 +85,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   headerTitle: {
+    fontFamily,
     fontWeight: '600',
     fontSize: 17,
     letterSpacing: -0.02 * 17,
@@ -98,6 +100,7 @@ const styles = StyleSheet.create({
     paddingTop: 8,
   },
   tabLabel: {
+    fontFamily,
     fontSize: 10,
     fontWeight: '500',
     letterSpacing: -0.01 * 10,

@@ -1,4 +1,5 @@
-import { Image, ImageSourcePropType, StyleSheet, Text, View, ViewStyle } from 'react-native';
+import { Image, ImageProps, ImageSourcePropType, StyleSheet, Text, View, ViewStyle } from 'react-native';
+import { AspectImage } from './AspectImage';
 import { LearnMoreLink } from './LearnMoreLink';
 import { colors } from '../theme/colors';
 import { layout, type } from '../theme/layout';
@@ -13,6 +14,7 @@ type Props = {
   logoHeight?: number;
   media: ImageSourcePropType;
   mediaAspect?: number;
+  mediaResizeMode?: ImageProps['resizeMode'];
   links?: Link[];
   style?: ViewStyle;
 };
@@ -25,7 +27,8 @@ export function PromoStackCard({
   logoWidth = 160,
   logoHeight = 36,
   media,
-  mediaAspect = 16 / 9,
+  mediaAspect,
+  mediaResizeMode = 'contain',
   links = [{ label: 'Learn more' }],
   style,
 }: Props) {
@@ -47,10 +50,11 @@ export function PromoStackCard({
           ))}
         </View>
       </View>
-      <Image
+      <AspectImage
         source={media}
-        style={[styles.media, { aspectRatio: mediaAspect }]}
-        resizeMode="contain"
+        aspectRatio={mediaAspect}
+        resizeMode={mediaResizeMode}
+        containerStyle={styles.mediaWrap}
       />
     </View>
   );
@@ -95,8 +99,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 10,
   },
-  media: {
-    width: '100%',
+  mediaWrap: {
     backgroundColor: colors.bgLighter,
   },
 });

@@ -1,16 +1,15 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
+import { AspectImage } from './AspectImage';
 import { LearnMoreLink } from './LearnMoreLink';
 import { colors } from '../theme/colors';
 import { layout, type } from '../theme/layout';
 
+const heroImage = require('../../assets/images/apple-one-56586a.png');
+
 export function AppleOneCard() {
   return (
     <View style={styles.card}>
-      <Image
-        source={require('../../assets/images/apple-one-56586a.png')}
-        style={styles.hero}
-        resizeMode="contain"
-      />
+      <AspectImage source={heroImage} containerStyle={styles.heroWrap} resizeMode="contain" />
       <View style={styles.copy}>
         <Image
           source={require('../../assets/images/apple-one-logo-56586a.png')}
@@ -38,9 +37,7 @@ const styles = StyleSheet.create({
     marginBottom: layout.sectionGap,
     overflow: 'hidden',
   },
-  hero: {
-    width: '100%',
-    aspectRatio: 542 / 329,
+  heroWrap: {
     backgroundColor: colors.white,
   },
   copy: {

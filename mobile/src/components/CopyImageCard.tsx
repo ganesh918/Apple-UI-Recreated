@@ -1,4 +1,5 @@
-import { Image, ImageSourcePropType, StyleSheet, Text, View, ViewStyle } from 'react-native';
+import { ImageSourcePropType, StyleSheet, Text, View, ViewStyle } from 'react-native';
+import { AspectImage } from './AspectImage';
 import { LearnMoreLink } from './LearnMoreLink';
 import { colors } from '../theme/colors';
 import { layout, type } from '../theme/layout';
@@ -18,7 +19,7 @@ export function CopyImageCard({
   title,
   body,
   image,
-  imageAspect = 675 / 357,
+  imageAspect,
   links = [{ label: 'Learn more' }],
   style,
 }: Props) {
@@ -33,13 +34,12 @@ export function CopyImageCard({
           ))}
         </View>
       </View>
-      <View style={styles.mediaWrap}>
-        <Image
-          source={image}
-          style={[styles.image, { aspectRatio: imageAspect }]}
-          resizeMode="contain"
-        />
-      </View>
+      <AspectImage
+        source={image}
+        aspectRatio={imageAspect}
+        containerStyle={styles.mediaWrap}
+        resizeMode="contain"
+      />
     </View>
   );
 }
@@ -84,12 +84,6 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   mediaWrap: {
-    width: '100%',
     backgroundColor: colors.white,
-    alignItems: 'center',
-  },
-  image: {
-    width: '100%',
-    maxWidth: '100%',
   },
 });

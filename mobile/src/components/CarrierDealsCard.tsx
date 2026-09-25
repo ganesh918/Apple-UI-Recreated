@@ -26,9 +26,12 @@ export function CarrierDealsCard({ carriers }: Props) {
         </Text>
         <LearnMoreLink label="Find your deal" />
       </View>
-      <View style={styles.grid}>
-        {carriers.map((carrier) => (
-          <View key={String(carrier.image)} style={styles.cell}>
+      <View style={styles.list}>
+        {carriers.map((carrier, index) => (
+          <View
+            key={String(carrier.image)}
+            style={[styles.cell, index < carriers.length - 1 && styles.cellBorder]}
+          >
             <Image source={carrier.image} style={styles.logo} resizeMode="contain" />
             <Text style={styles.credit}>{carrier.credit}</Text>
           </View>
@@ -46,7 +49,7 @@ const styles = StyleSheet.create({
     borderRadius: layout.cardRadius,
     marginBottom: layout.sectionGap,
     overflow: 'hidden',
-    paddingBottom: 28,
+    paddingBottom: 8,
   },
   head: {
     paddingHorizontal: 22,
@@ -71,22 +74,23 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 12,
   },
-  grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    gap: 20,
-    paddingHorizontal: 16,
-    paddingTop: 24,
+  list: {
+    paddingHorizontal: 20,
+    paddingTop: 20,
   },
   cell: {
-    width: '42%',
-    minWidth: 140,
+    width: '100%',
     alignItems: 'center',
+    paddingVertical: 24,
+  },
+  cellBorder: {
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: colors.border,
   },
   logo: {
-    width: 165,
-    height: 76,
+    width: '100%',
+    maxWidth: 200,
+    height: 72,
     marginBottom: 10,
   },
   credit: {

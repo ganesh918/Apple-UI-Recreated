@@ -80,6 +80,8 @@ const styles = StyleSheet.create({
   content: {
     paddingTop: 28,
     width: '100%',
+    maxWidth: layout.maxContentWidth + 40,
+    alignSelf: 'center',
     alignItems: 'stretch',
   },
   title: {
@@ -118,13 +120,13 @@ const styles = StyleSheet.create({
     height: 24,
   },
   phone: {
-    width: 120,
-    height: 160,
+    width: 132,
+    height: 178,
     marginBottom: 16,
   },
   logo: {
-    height: 22,
-    width: 130,
+    height: 24,
+    width: 140,
     marginBottom: 10,
   },
   tagline: {

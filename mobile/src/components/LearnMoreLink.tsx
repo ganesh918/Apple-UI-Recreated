@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text } from 'react-native';
 import { colors } from '../theme/colors';
+import { fontFamily } from '../theme/fonts';
 
 interface LearnMoreLinkProps {
   label?: string;
@@ -19,6 +20,7 @@ export function LearnMoreLink({ label = 'Learn more', light, onPress }: LearnMor
 
 const styles = StyleSheet.create({
   link: {
+    fontFamily,
     color: colors.link,
     fontSize: 17,
     lineHeight: 25,

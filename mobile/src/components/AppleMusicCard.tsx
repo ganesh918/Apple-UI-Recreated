@@ -80,12 +80,14 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   album: {
-    width: 140,
-    height: 140,
+    width: 148,
+    height: 148,
+    borderRadius: 8,
   },
   albumMiddle: {
-    width: 158,
-    height: 158,
-    marginBottom: 8,
+    width: 168,
+    height: 168,
+    marginBottom: 10,
+    borderRadius: 8,
   },
 });
