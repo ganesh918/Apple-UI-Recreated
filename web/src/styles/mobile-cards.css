@@ -310,6 +310,23 @@
     height: auto;
   }
 
+  /* Match Apple Music wordmark scale on mobile */
+  .get-more-out__music-logo {
+    width: 154px;
+    height: auto;
+    max-height: 37px;
+    object-fit: contain;
+  }
+
+  .get-more-out__apple-one-logo,
+  .get-more-out__news-logo,
+  .get-more-out__arcade-logo {
+    width: auto;
+    max-width: min(100%, 200px);
+    height: 37px;
+    object-fit: contain;
+  }
+
   .get-more-out__apple-one-subtitle,
   .get-more-out__tv-body,
   .get-more-out__music-body,

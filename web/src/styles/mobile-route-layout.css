@@ -306,6 +306,22 @@ html.mobile-landing .get-more-out__gift-logo {
     height: auto;
   }
 
+html.mobile-landing .get-more-out__music-logo {
+    width: 154px;
+    height: auto;
+    max-height: 37px;
+    object-fit: contain;
+  }
+
+html.mobile-landing .get-more-out__apple-one-logo,
+html.mobile-landing .get-more-out__news-logo,
+html.mobile-landing .get-more-out__arcade-logo {
+    width: auto;
+    max-width: min(100%, 200px);
+    height: 37px;
+    object-fit: contain;
+  }
+
 html.mobile-landing .get-more-out__apple-one-subtitle,
 html.mobile-landing .get-more-out__tv-body,
 html.mobile-landing .get-more-out__music-body,
@@ -657,6 +673,57 @@ html.mobile-landing .guided-tour__title {
 
 html.mobile-landing .guided-tour__card:hover .guided-tour__bg {
     transform: none;
+  }
+
+
+/* from ../components/layout/Footer.css @media (max-width: 734px) */
+html.mobile-landing .site-footer__directory {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 16px;
+    width: 100%;
+  }
+
+html.mobile-landing .site-footer__directory-col {
+    display: contents;
+  }
+
+html.mobile-landing .site-footer__directory-section {
+    min-width: 0;
+    margin-top: 0;
+  }
+
+html.mobile-landing .site-footer__directory-section + .site-footer__directory-section {
+    margin-top: 0;
+  }
+
+html.mobile-landing .site-footer__column-title {
+    font-size: 11px;
+    line-height: 14px;
+    margin-bottom: 8px;
+  }
+
+html.mobile-landing .site-footer__legal {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+html.mobile-landing .site-footer__legal-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+html.mobile-landing .site-footer__legal-links li {
+    border-right: none;
+    padding-right: 0;
+  }
+
+
+/* from ../components/layout/Footer.css @media (max-width: 480px) */
+html.mobile-landing .site-footer__directory {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 12px;
   }
 
 
