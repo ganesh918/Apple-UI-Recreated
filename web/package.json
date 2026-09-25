@@ -5,14 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "npm run css:mobile-route && tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "npm run build && playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "export:figma-get-more-out": "node scripts/export-get-more-out-images.mjs"
+    "export:figma-get-more-out": "node scripts/export-get-more-out-images.mjs",
+    "css:mobile-route": "node scripts/generate-mobile-route-css.mjs"
   },
   "dependencies": {
     "framer-motion": "^13.4.0",

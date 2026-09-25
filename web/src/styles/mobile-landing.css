@@ -6,6 +6,17 @@ html.mobile-landing {
   scroll-behavior: smooth;
 }
 
+/* Desktop browser on /mobile (layout viewport pinned to 430px) */
+html.mobile-landing.mobile-landing--desktop-preview {
+  background: #e8e8ed;
+}
+
+html.mobile-landing.mobile-landing--desktop-preview body {
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.06),
+    0 8px 40px rgba(0, 0, 0, 0.08);
+}
+
 html.mobile-landing .page {
   width: 100%;
   max-width: 100%;

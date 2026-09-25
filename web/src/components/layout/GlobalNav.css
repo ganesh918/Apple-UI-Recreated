@@ -363,6 +363,81 @@
   }
 }
 
+/* /mobile route — mobile nav on wide desktop viewports */
+html.mobile-landing .global-nav__inner {
+  padding: 0 16px;
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  align-items: center;
+  gap: 0;
+}
+
+html.mobile-landing .global-nav__hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  grid-column: 1;
+  justify-self: start;
+}
+
+html.mobile-landing .global-nav__hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  width: 17px;
+  height: 14px;
+}
+
+html.mobile-landing .global-nav__hamburger-icon span {
+  display: block;
+  height: 1px;
+  width: 100%;
+  background: var(--color-text-primary);
+  border-radius: 1px;
+}
+
+html.mobile-landing .global-nav__mobile-apple {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-column: 2;
+  justify-self: center;
+  height: 44px;
+  padding: 0 8px;
+}
+
+html.mobile-landing .global-nav__apple-wrap--desktop {
+  display: none;
+}
+
+html.mobile-landing .global-nav__list {
+  display: none;
+}
+
+html.mobile-landing .global-nav__actions {
+  grid-column: 3;
+  justify-self: end;
+  gap: 0;
+}
+
+html.mobile-landing .global-nav__inner {
+  padding: 0 12px;
+}
+
+@media (min-width: 1069px) {
+  html.mobile-landing .global-nav__mobile-layer {
+    display: block;
+  }
+}
+
 @media (max-width: 734px) {
   .global-nav__inner {
     padding: 0 12px;

@@ -20,6 +20,15 @@ test.describe('Mobile landing (/mobile)', () => {
     await expect(page.getByText(/Two great sizes/i)).toBeVisible();
   });
 
+  test('desktop viewport shows mobile layout (hamburger, not full nav row)', async ({
+    page,
+  }, testInfo) => {
+    test.skip(testInfo.project.name !== 'desktop-chrome', 'Desktop viewport');
+    await page.goto('/mobile');
+    await expect(page.getByRole('button', { name: 'Menu', exact: true })).toBeVisible();
+    await expect(page.locator('.global-nav__list')).toBeHidden();
+  });
+
   test('hamburger menu lists Apple global nav items', async ({ page }, testInfo) => {
     test.skip(testInfo.project.name !== 'mobile-chrome', 'Mobile viewport');
     await page.goto('/mobile');
@@ -41,15 +50,29 @@ test.describe('Authentication', () => {
     await expect(page.getByRole('navigation', { name: 'Global' })).toBeVisible();
   });
 
-  test('apple menu sign out returns to login', async ({ page }) => {
+  test('apple menu sign out returns to login', async ({ page }, testInfo) => {
     await signUpAndLandOnHome(page);
-    await page.getByRole('button', { name: /apple account menu/i }).click();
-    await page.getByRole('menuitem', { name: /sign out/i }).click();
+    if (testInfo.project.name === 'desktop-chrome') {
+      await page.getByRole('button', { name: /apple account menu/i }).click();
+      await page.getByRole('menuitem', { name: /sign out/i }).click();
+    } else {
+      await page.getByRole('button', { name: 'Menu', exact: true }).click();
+      await page.getByRole('button', { name: /sign out/i }).click();
+    }
     await expect(page.getByRole('heading', { name: /sign in/i })).toBeVisible();
   });
 });
 
 test.describe('Responsive layout', () => {
+  test('desktop home uses full web global nav', async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name !== 'desktop-chrome', 'Desktop viewport');
+    await signUpAndLandOnHome(page);
+    await expect(
+      page.getByRole('navigation', { name: 'Global' }).getByRole('link', { name: 'Store' }),
+    ).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Menu', exact: true })).toBeHidden();
+  });
+
   test('no horizontal document overflow on load', async ({ page }) => {
     await signUpAndLandOnHome(page);
     const hasOverflow = await page.evaluate(
