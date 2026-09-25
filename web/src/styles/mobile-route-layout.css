@@ -677,29 +677,80 @@ html.mobile-landing .guided-tour__card:hover .guided-tour__bg {
 
 
 /* from ../components/layout/Footer.css @media (max-width: 734px) */
-html.mobile-landing .site-footer__directory {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px 16px;
+html.mobile-landing .site-footer__directory--columns {
+    display: none;
+  }
+
+html.mobile-landing .site-footer__directory--accordion {
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    padding-top: 0;
+    border-top: 1px solid #d2d2d7;
   }
 
-html.mobile-landing .site-footer__directory-col {
-    display: contents;
+html.mobile-landing .site-footer__accordion-item {
+    border-bottom: 1px solid #d2d2d7;
   }
 
-html.mobile-landing .site-footer__directory-section {
-    min-width: 0;
-    margin-top: 0;
+html.mobile-landing .site-footer__accordion-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 11px 0;
+    cursor: pointer;
+    list-style: none;
   }
 
-html.mobile-landing .site-footer__directory-section + .site-footer__directory-section {
-    margin-top: 0;
+html.mobile-landing .site-footer__accordion-summary::-webkit-details-marker {
+    display: none;
   }
 
-html.mobile-landing .site-footer__column-title {
-    font-size: 11px;
-    line-height: 14px;
-    margin-bottom: 8px;
+html.mobile-landing .site-footer__accordion-title {
+    font: 600 12px/16px var(--font-family);
+    letter-spacing: -0.01em;
+    color: #1d1d1f;
+  }
+
+html.mobile-landing .site-footer__accordion-icon {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+    position: relative;
+  }
+
+html.mobile-landing .site-footer__accordion-icon::before,
+html.mobile-landing .site-footer__accordion-icon::after {
+    content: '';
+    position: absolute;
+    background: #1d1d1f;
+    border-radius: 1px;
+  }
+
+html.mobile-landing .site-footer__accordion-icon::before {
+    top: 6px;
+    left: 1px;
+    width: 12px;
+    height: 1px;
+  }
+
+html.mobile-landing .site-footer__accordion-icon::after {
+    top: 1px;
+    left: 6px;
+    width: 1px;
+    height: 12px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+html.mobile-landing .site-footer__accordion-item[open] .site-footer__accordion-icon::after {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+
+html.mobile-landing .site-footer__accordion-links {
+    padding: 0 0 14px;
+    margin: 0;
   }
 
 html.mobile-landing .site-footer__legal {
@@ -721,9 +772,68 @@ html.mobile-landing .site-footer__legal-links li {
 
 
 /* from ../components/layout/Footer.css @media (max-width: 480px) */
-html.mobile-landing .site-footer__directory {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px 12px;
+html.mobile-landing .site-footer__accordion-summary {
+    padding: 12px 0;
+  }
+
+
+/* from ../sections/HeroProducts.css @media (max-width: 734px) */
+html.mobile-landing .hero-product--14 .hero-product__stage,
+html.mobile-landing .hero-product--14-pro .hero-product__stage {
+    padding-top: 48px;
+  }
+
+html.mobile-landing .hero-product--14 .hero-product__copy,
+html.mobile-landing .hero-product--14-pro .hero-product__copy,
+html.mobile-landing .hero-product__copy--se {
+    padding-inline: 20px;
+  }
+
+html.mobile-landing .hero-product__headline,
+html.mobile-landing .hero-product__headline--pro {
+    font-size: 32px;
+    line-height: 38px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+html.mobile-landing .hero-product__price {
+    font-size: 17px;
+    line-height: 25px;
+    max-width: 100%;
+  }
+
+html.mobile-landing .hero-product--14 .hero-cta {
+    margin-bottom: 24px;
+  }
+
+html.mobile-landing .hero-product--14 .hero-product__image,
+html.mobile-landing .hero-product--14-pro .hero-product__image {
+    margin-top: 24px;
+    padding-inline: 12px;
+    box-sizing: border-box;
+  }
+
+html.mobile-landing .hero-cta {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+  }
+
+html.mobile-landing .hero-cta li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+html.mobile-landing .hero-product__copy--se {
+    padding-top: 48px;
+    padding-bottom: 24px;
+  }
+
+html.mobile-landing .hero-product__se-image {
+    max-width: min(260px, 68vw);
   }
 
 

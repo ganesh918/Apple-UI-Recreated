@@ -171,6 +171,14 @@
   padding-top: 1px;
 }
 
+.site-footer__directory--accordion {
+  display: none;
+}
+
+.site-footer__directory--columns {
+  display: grid;
+}
+
 .site-footer__directory-col {
   min-width: 0;
   padding-right: 20px;
@@ -334,30 +342,81 @@
 }
 
 @media (max-width: 734px) {
-  .site-footer__directory {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px 16px;
+  .site-footer__directory--columns {
+    display: none;
+  }
+
+  .site-footer__directory--accordion {
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    padding-top: 0;
+    border-top: 1px solid #d2d2d7;
   }
 
-  /* Two section headings per row (flatten directory columns) */
-  .site-footer__directory-col {
-    display: contents;
+  .site-footer__accordion-item {
+    border-bottom: 1px solid #d2d2d7;
   }
 
-  .site-footer__directory-section {
-    min-width: 0;
-    margin-top: 0;
+  .site-footer__accordion-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 11px 0;
+    cursor: pointer;
+    list-style: none;
   }
 
-  .site-footer__directory-section + .site-footer__directory-section {
-    margin-top: 0;
+  .site-footer__accordion-summary::-webkit-details-marker {
+    display: none;
   }
 
-  .site-footer__column-title {
-    font-size: 11px;
-    line-height: 14px;
-    margin-bottom: 8px;
+  .site-footer__accordion-title {
+    font: 600 12px/16px var(--font-family);
+    letter-spacing: -0.01em;
+    color: #1d1d1f;
+  }
+
+  .site-footer__accordion-icon {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+    position: relative;
+  }
+
+  .site-footer__accordion-icon::before,
+  .site-footer__accordion-icon::after {
+    content: '';
+    position: absolute;
+    background: #1d1d1f;
+    border-radius: 1px;
+  }
+
+  /* Plus */
+  .site-footer__accordion-icon::before {
+    top: 6px;
+    left: 1px;
+    width: 12px;
+    height: 1px;
+  }
+
+  .site-footer__accordion-icon::after {
+    top: 1px;
+    left: 6px;
+    width: 1px;
+    height: 12px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .site-footer__accordion-item[open] .site-footer__accordion-icon::after {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+
+  .site-footer__accordion-links {
+    padding: 0 0 14px;
+    margin: 0;
   }
 
   .site-footer__legal {
@@ -379,8 +438,7 @@
 }
 
 @media (max-width: 480px) {
-  .site-footer__directory {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px 12px;
+  .site-footer__accordion-summary {
+    padding: 12px 0;
   }
 }

@@ -115,6 +115,10 @@ export const footerDirectoryColumns: FooterDirectoryColumn[] = [
   },
 ];
 
+export function flattenFooterDirectorySections(): FooterDirectorySection[] {
+  return footerDirectoryColumns.flatMap((column) => column.sections);
+}
+
 export const footerLegalLinks = [
   'Privacy Policy',
   'Terms of Use',

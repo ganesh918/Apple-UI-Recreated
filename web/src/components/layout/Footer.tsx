@@ -6,6 +6,7 @@ import {
   footerDoubleAsteriskParagraphs,
   footerNumberedNotes,
 } from '../../data/footerFootnotes';
+import { FooterDirectoryAccordion } from './FooterDirectoryAccordion';
 import { FooterNoteText } from './FooterNoteText';
 import './Footer.css';
 
@@ -81,7 +82,12 @@ export function Footer() {
           </span>
         </nav>
 
-        <nav className="site-footer__directory" aria-label="Apple Directory">
+        <FooterDirectoryAccordion />
+
+        <nav
+          className="site-footer__directory site-footer__directory--columns"
+          aria-label="Apple Directory"
+        >
           {footerDirectoryColumns.map((column, columnIndex) => (
             <div
               key={columnIndex}

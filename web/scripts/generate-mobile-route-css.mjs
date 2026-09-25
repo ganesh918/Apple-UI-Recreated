@@ -58,6 +58,7 @@ const sources = [
   { file: 'responsive.css', widths: [1068, 734, 480] },
   { file: '../sections/GuidedTour.css', widths: [734] },
   { file: '../components/layout/Footer.css', widths: [734, 480] },
+  { file: '../sections/HeroProducts.css', widths: [734] },
 ];
 
 let generated = '/* Auto-generated — npm run css:mobile-route */\n\n';

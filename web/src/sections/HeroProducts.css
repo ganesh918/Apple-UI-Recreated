@@ -357,4 +357,13 @@
     display: flex;
     justify-content: center;
   }
+
+  .hero-product__copy--se {
+    padding-top: 48px;
+    padding-bottom: 24px;
+  }
+
+  .hero-product__se-image {
+    max-width: min(260px, 68vw);
+  }
 }
