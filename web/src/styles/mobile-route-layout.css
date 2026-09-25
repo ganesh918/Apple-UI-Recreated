@@ -582,3 +582,81 @@ html.mobile-landing .site-footer__inner {
   }
 
 
+/* from ../sections/GuidedTour.css @media (max-width: 734px) */
+html.mobile-landing .guided-tour {
+    padding: 12px 12px 8px;
+  }
+
+html.mobile-landing .guided-tour__card {
+    position: relative;
+    height: auto;
+    min-height: 0;
+    border-radius: 22px;
+    overflow: hidden;
+    display: grid;
+    grid-template-areas: 'stack';
+    align-items: stretch;
+  }
+
+html.mobile-landing .guided-tour__card::before {
+    content: '';
+    grid-area: stack;
+    z-index: 1;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 32%,
+      rgba(0, 0, 0, 0.28) 58%,
+      rgba(0, 0, 0, 0.58) 100%
+    );
+    pointer-events: none;
+  }
+
+html.mobile-landing .guided-tour__bg {
+    position: relative;
+    grid-area: stack;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1410 / 814;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+  }
+
+html.mobile-landing .guided-tour__content {
+    grid-area: stack;
+    position: relative;
+    z-index: 2;
+    align-self: end;
+    min-height: 0;
+    padding: 0 22px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 16px;
+    text-align: left;
+    box-sizing: border-box;
+  }
+
+html.mobile-landing .guided-tour__heading {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+html.mobile-landing .guided-tour__eyebrow {
+    font-size: 17px;
+    line-height: 24px;
+  }
+
+html.mobile-landing .guided-tour__title {
+    font-size: 28px;
+    line-height: 34px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+html.mobile-landing .guided-tour__card:hover .guided-tour__bg {
+    transform: none;
+  }
+
+

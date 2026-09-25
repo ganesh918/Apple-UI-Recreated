@@ -56,12 +56,16 @@ function prefixBlock(block, prefix) {
 const sources = [
   { file: 'mobile-cards.css', widths: [734, 480] },
   { file: 'responsive.css', widths: [1068, 734, 480] },
+  { file: '../sections/GuidedTour.css', widths: [734] },
 ];
 
 let generated = '/* Auto-generated — npm run css:mobile-route */\n\n';
 
 for (const { file, widths } of sources) {
-  const css = fs.readFileSync(path.join(stylesDir, file), 'utf8');
+  const cssPath = file.startsWith('..')
+    ? path.join(stylesDir, file)
+    : path.join(stylesDir, file);
+  const css = fs.readFileSync(cssPath, 'utf8');
   for (const w of widths) {
     for (const block of extractMediaBlocks(css, w)) {
       generated += `/* from ${file} @media (max-width: ${w}px) */\n`;

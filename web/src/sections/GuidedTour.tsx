@@ -38,7 +38,13 @@ export function GuidedTour() {
         <motion.div
           className="guided-tour__content"
           variants={staggerContainer}
-          {...(reduceMotion ? { initial: false } : { initial: 'hidden', whileInView: 'visible', viewport: { once: true, margin: '-20%' } })}
+          {...(reduceMotion || isCompact
+            ? { initial: false }
+            : {
+                initial: 'hidden',
+                whileInView: 'visible',
+                viewport: { once: true, margin: '-20%' },
+              })}
         >
           <motion.h2 className="guided-tour__heading" variants={staggerItemUp}>
             <span className="guided-tour__eyebrow">A Guided Tour of</span>
