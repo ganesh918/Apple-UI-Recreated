@@ -1,4 +1,5 @@
-import { Pressable, StyleSheet, Text } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import { colors } from '../theme/colors';
 import { fontFamily } from '../theme/fonts';
 
@@ -6,22 +7,50 @@ interface BuyButtonProps {
   label?: string;
   small?: boolean;
   centered?: boolean;
+  animated?: boolean;
   onPress?: () => void;
 }
 
-export function BuyButton({ label = 'Buy', small, centered, onPress }: BuyButtonProps) {
-  return (
+export function BuyButton({
+  label = 'Buy',
+  small,
+  centered,
+  animated,
+  onPress,
+}: BuyButtonProps) {
+  const scale = useSharedValue(1);
+  const animStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: scale.value }],
+  }));
+
+  const pressIn = () => {
+    scale.value = withSpring(0.96, { damping: 18, stiffness: 420 });
+  };
+  const pressOut = () => {
+    scale.value = withSpring(1, { damping: 18, stiffness: 420 });
+  };
+
+  const button = (
     <Pressable
       style={({ pressed }) => [
         styles.button,
         small && styles.buttonSmall,
-        centered && styles.buttonCentered,
-        pressed && styles.pressed,
+        !animated && pressed && styles.pressed,
       ]}
       onPress={onPress}
+      onPressIn={animated ? pressIn : undefined}
+      onPressOut={animated ? pressOut : undefined}
     >
       <Text style={[styles.label, small && styles.labelSmall]}>{label}</Text>
     </Pressable>
+  );
+
+  if (!animated) {
+    return <View style={centered ? styles.centeredWrap : undefined}>{button}</View>;
+  }
+
+  return (
+    <Animated.View style={[animStyle, centered && styles.centeredWrap]}>{button}</Animated.View>
   );
 }
 
@@ -37,7 +66,7 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     paddingHorizontal: 14,
   },
-  buttonCentered: {
+  centeredWrap: {
     alignSelf: 'center',
   },
   pressed: {

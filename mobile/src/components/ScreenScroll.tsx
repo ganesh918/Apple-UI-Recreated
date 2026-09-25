@@ -1,4 +1,5 @@
-import { ScrollView, ScrollViewProps, StyleSheet } from 'react-native';
+import Animated from 'react-native-reanimated';
+import { ScrollViewProps, StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { layout } from '../theme/layout';
 
@@ -18,7 +19,7 @@ export function ScreenScroll({
     : undefined;
 
   return (
-    <ScrollView
+    <Animated.ScrollView
       {...rest}
       style={[styles.scroll, style]}
       contentContainerStyle={[

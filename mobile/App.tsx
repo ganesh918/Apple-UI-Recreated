@@ -2,7 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StatusBar } from 'expo-status-bar';
-import { Platform, StyleSheet } from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { HomeScreen } from './src/screens/HomeScreen';
 import { CompareScreen } from './src/screens/CompareScreen';
@@ -26,11 +26,13 @@ const navTheme = {
 
 function tabIcon(name: keyof typeof Ionicons.glyphMap, focused: boolean) {
   return (
-    <Ionicons
-      name={name}
-      size={22}
-      color={focused ? colors.link : colors.textSecondary}
-    />
+    <View style={[styles.iconWrap, focused && styles.iconWrapActive]}>
+      <Ionicons
+        name={name}
+        size={23}
+        color={focused ? colors.link : colors.textSecondary}
+      />
+    </View>
   );
 }
 
@@ -41,9 +43,7 @@ export default function App() {
         <StatusBar style="dark" />
         <Tab.Navigator
           screenOptions={{
-            headerStyle: {
-              backgroundColor: colors.bgLighter,
-            },
+            headerStyle: styles.header,
             headerShadowVisible: false,
             headerTitleStyle: styles.headerTitle,
             headerTitleAlign: 'center',
@@ -51,6 +51,8 @@ export default function App() {
             tabBarActiveTintColor: colors.link,
             tabBarInactiveTintColor: colors.textSecondary,
             tabBarLabelStyle: styles.tabLabel,
+            tabBarHideOnKeyboard: true,
+            animation: 'shift',
           }}
         >
           <Tab.Screen
@@ -84,6 +86,11 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  header: {
+    backgroundColor: 'rgba(251, 251, 253, 0.92)',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: colors.border,
+  },
   headerTitle: {
     fontFamily,
     fontWeight: '600',
@@ -92,17 +99,40 @@ const styles = StyleSheet.create({
     color: colors.textPrimary,
   },
   tabBar: {
-    backgroundColor: 'rgba(251, 251, 253, 0.98)',
+    backgroundColor: 'rgba(251, 251, 253, 0.96)',
     borderTopColor: colors.border,
     borderTopWidth: StyleSheet.hairlineWidth,
-    height: Platform.OS === 'ios' ? 88 : 64,
-    paddingBottom: Platform.OS === 'ios' ? 28 : 10,
-    paddingTop: 8,
+    height: Platform.OS === 'ios' ? 88 : 68,
+    paddingBottom: Platform.OS === 'ios' ? 28 : 12,
+    paddingTop: 10,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: -4 },
+        shadowOpacity: 0.06,
+        shadowRadius: 12,
+      },
+      android: { elevation: 12 },
+      default: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: -6 },
+        shadowOpacity: 0.05,
+        shadowRadius: 16,
+      },
+    }),
   },
   tabLabel: {
     fontFamily,
     fontSize: 10,
-    fontWeight: '500',
+    fontWeight: '600',
     letterSpacing: -0.01 * 10,
+    marginTop: 2,
+  },
+  iconWrap: {
+    padding: 4,
+    borderRadius: 12,
+  },
+  iconWrapActive: {
+    backgroundColor: 'rgba(0, 102, 204, 0.08)',
   },
 });

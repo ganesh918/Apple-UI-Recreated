@@ -13,4 +13,10 @@ describe('HomeScreen', () => {
     const { getByText } = await renderWithProviders(<HomeScreen />);
     expect(getByText(/\$200–\$600 in credit/i)).toBeTruthy();
   });
+
+  it('includes What makes an iPhone section from Figma', async () => {
+    const { getByText } = await renderWithProviders(<HomeScreen />);
+    expect(getByText(/What makes an iPhone an iPhone/i)).toBeTruthy();
+    expect(getByText(/Switching to iPhone/i)).toBeTruthy();
+  });
 });

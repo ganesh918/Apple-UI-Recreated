@@ -68,6 +68,11 @@ const styles = StyleSheet.create({
     borderRadius: layout.cardRadius,
     marginBottom: layout.sectionGap,
     overflow: 'hidden',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.07,
+    shadowRadius: 28,
+    elevation: 5,
   },
   copy: {
     width: '100%',

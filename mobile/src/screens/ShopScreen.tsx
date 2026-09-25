@@ -9,6 +9,8 @@ import { CopyImageCard } from '../components/CopyImageCard';
 import { LearnMoreLink } from '../components/LearnMoreLink';
 import { ScreenScroll } from '../components/ScreenScroll';
 import { SectionCard } from '../components/SectionCard';
+import { SectionTitle } from '../components/SectionTitle';
+import { StaggerReveal } from '../components/StaggerReveal';
 import { colors } from '../theme/colors';
 import { layout, type } from '../theme/layout';
 
@@ -68,105 +70,133 @@ const accessories = [
 export function ShopScreen() {
   return (
     <ScreenScroll style={styles.container} contentContainerStyle={styles.content}>
-      <Text style={styles.sectionTitle}>Ways to save on iPhone</Text>
+      <SectionTitle>Ways to save on iPhone</SectionTitle>
 
-      <SectionCard>
-        <AspectImage source={tradeInImage} containerStyle={styles.tradeInWrap} resizeMode="contain" />
-        <View style={styles.cardBody}>
-          <Text style={styles.cardTitle}>Trade in for credit toward a new iPhone.</Text>
-          <Text style={styles.cardSubtitle}>
-            Get $200–$600 in credit when you trade in iPhone 11 or higher.
-          </Text>
-          <LearnMoreLink />
-        </View>
-      </SectionCard>
-
-      <CarrierDealsCard carriers={carriers} />
-
-      <CopyImageCard
-        title={'Get 3% Daily Cash back with Apple Card.'}
-        body="And pay for your new iPhone over 24 months, interest‑free when you choose to check out with Apple Card Monthly Installments.**"
-        image={require('../../assets/images/apple-card-56586a.png')}
-      />
-
-      <PromoStackCard
-        title="Why Apple is the best place to buy iPhone."
-        body="You can choose a payment option that works for you, pay less with a trade‑in, connect your new iPhone to your carrier, and get set up quickly. You can also chat with a Specialist anytime."
-        media={require('../../assets/images/why-apple-bg-56586a.png')}
-        links={[{ label: 'Learn more' }]}
-      />
-
-      <Text style={[styles.sectionTitle, styles.sectionSpaced]}>Get more out of your iPhone.</Text>
-
-      <AppleOneCard />
-      <AppleTvCard />
-      <AppleMusicCard />
-
-      <PromoStackCard
-        logo={require('../../assets/images/apple-news-logo-56586a.png')}
-        logoWidth={184}
-        logoHeight={39}
-        body={'Get 3 months of Apple News+ free when you buy an iPhone.'}
-        media={require('../../assets/images/apple-news-bg-38c9b7.png')}
-        links={[{ label: 'Learn more' }]}
-      />
-
-      <PromoStackCard
-        logo={require('../../assets/images/apple-arcade-logo-56586a.png')}
-        logoWidth={180}
-        logoHeight={39}
-        body="Get 3 months of Apple Arcade free when you buy an iPhone."
-        media={require('../../assets/images/apple-arcade-card-bg-2x.png')}
-        links={[{ label: 'Try it free' }, { label: 'Learn more' }]}
-      />
-
-      <CopyImageCard
-        title="Apple Fitness+"
-        body={'Fitness for everyone.\nNow all you need is iPhone.'}
-        image={require('../../assets/images/fitness-hero-56586a.png')}
-        links={[{ label: 'Learn more' }, { label: 'Try it free' }]}
-      />
-
-      <CopyImageCard
-        title="Apple Gift Card"
-        body="For everything and everyone."
-        image={require('../../assets/images/gift-card-56586a.png')}
-        links={[{ label: 'Learn more' }, { label: 'Buy' }]}
-      />
-
-      <CopyImageCard
-        title={'Introducing\nthe Apple\nResearch app.'}
-        body="The future of health research is you."
-        image={require('../../assets/images/research-app-56586a.png')}
-      />
-
-      <Text style={[styles.sectionTitle, styles.sectionSpaced]}>Shopping made simple</Text>
-      <SectionCard style={styles.servicesCard}>
-        {services.map((service, index) => (
-          <View
-            key={service.title}
-            style={[styles.serviceRow, index < services.length - 1 && styles.serviceRowBorder]}
-          >
-            <Image source={service.icon} style={styles.serviceIcon} resizeMode="contain" />
-            <Text style={styles.serviceTitle}>{service.title}</Text>
-            <Text style={styles.serviceBody}>{service.body}</Text>
+      <StaggerReveal index={0}>
+        <SectionCard>
+          <AspectImage source={tradeInImage} containerStyle={styles.tradeInWrap} resizeMode="contain" />
+          <View style={styles.cardBody}>
+            <Text style={styles.cardTitle}>Trade in for credit toward a new iPhone.</Text>
+            <Text style={styles.cardSubtitle}>
+              Get $200–$600 in credit when you trade in iPhone 11 or higher.
+            </Text>
             <LearnMoreLink />
           </View>
-        ))}
-      </SectionCard>
-
-      <Text style={[styles.sectionTitle, styles.sectionSpaced]}>Featured accessories</Text>
-      {accessories.map((item) => (
-        <SectionCard key={item.title} muted>
-          <View style={styles.cardBody}>
-            <Text style={styles.cardTitle}>{item.title}</Text>
-            <Text style={styles.cardSubtitle}>{item.body}</Text>
-          </View>
-          <AspectImage source={item.image} containerStyle={styles.accessoryWrap} resizeMode="contain" />
-          <View style={[styles.cardBody, styles.accessoryFooter]}>
-            <LearnMoreLink label={`Shop ${item.title}`} />
-          </View>
         </SectionCard>
+      </StaggerReveal>
+
+      <StaggerReveal index={1}>
+        <CarrierDealsCard carriers={carriers} />
+      </StaggerReveal>
+
+      <StaggerReveal index={2}>
+        <CopyImageCard
+          title={'Get 3% Daily Cash back with Apple Card.'}
+          body="And pay for your new iPhone over 24 months, interest‑free when you choose to check out with Apple Card Monthly Installments.**"
+          image={require('../../assets/images/apple-card-56586a.png')}
+        />
+      </StaggerReveal>
+
+      <StaggerReveal index={3}>
+        <PromoStackCard
+          title="Why Apple is the best place to buy iPhone."
+          body="You can choose a payment option that works for you, pay less with a trade‑in, connect your new iPhone to your carrier, and get set up quickly. You can also chat with a Specialist anytime."
+          media={require('../../assets/images/why-apple-bg-56586a.png')}
+          links={[{ label: 'Learn more' }]}
+        />
+      </StaggerReveal>
+
+      <SectionTitle spaced>Get more out of your iPhone.</SectionTitle>
+
+      <StaggerReveal index={4}>
+        <AppleOneCard />
+      </StaggerReveal>
+      <StaggerReveal index={5}>
+        <AppleTvCard />
+      </StaggerReveal>
+      <StaggerReveal index={6}>
+        <AppleMusicCard />
+      </StaggerReveal>
+
+      <StaggerReveal index={7}>
+        <PromoStackCard
+          logo={require('../../assets/images/apple-news-logo-56586a.png')}
+          logoWidth={184}
+          logoHeight={39}
+          body={'Get 3 months of Apple News+ free when you buy an iPhone.'}
+          media={require('../../assets/images/apple-news-bg-38c9b7.png')}
+          links={[{ label: 'Learn more' }]}
+        />
+      </StaggerReveal>
+
+      <StaggerReveal index={8}>
+        <PromoStackCard
+          logo={require('../../assets/images/apple-arcade-logo-56586a.png')}
+          logoWidth={180}
+          logoHeight={39}
+          body="Get 3 months of Apple Arcade free when you buy an iPhone."
+          media={require('../../assets/images/apple-arcade-card-bg-2x.png')}
+          links={[{ label: 'Try it free' }, { label: 'Learn more' }]}
+        />
+      </StaggerReveal>
+
+      <StaggerReveal index={9}>
+        <CopyImageCard
+          title="Apple Fitness+"
+          body={'Fitness for everyone.\nNow all you need is iPhone.'}
+          image={require('../../assets/images/fitness-hero-56586a.png')}
+          links={[{ label: 'Learn more' }, { label: 'Try it free' }]}
+        />
+      </StaggerReveal>
+
+      <StaggerReveal index={10}>
+        <CopyImageCard
+          title="Apple Gift Card"
+          body="For everything and everyone."
+          image={require('../../assets/images/gift-card-56586a.png')}
+          links={[{ label: 'Learn more' }, { label: 'Buy' }]}
+        />
+      </StaggerReveal>
+
+      <StaggerReveal index={11}>
+        <CopyImageCard
+          title={'Introducing\nthe Apple\nResearch app.'}
+          body="The future of health research is you."
+          image={require('../../assets/images/research-app-56586a.png')}
+        />
+      </StaggerReveal>
+
+      <SectionTitle spaced>Shopping made simple</SectionTitle>
+      <StaggerReveal index={12}>
+        <SectionCard style={styles.servicesCard}>
+          {services.map((service, index) => (
+            <View
+              key={service.title}
+              style={[styles.serviceRow, index < services.length - 1 && styles.serviceRowBorder]}
+            >
+              <Image source={service.icon} style={styles.serviceIcon} resizeMode="contain" />
+              <Text style={styles.serviceTitle}>{service.title}</Text>
+              <Text style={styles.serviceBody}>{service.body}</Text>
+              <LearnMoreLink />
+            </View>
+          ))}
+        </SectionCard>
+      </StaggerReveal>
+
+      <SectionTitle spaced>Featured accessories</SectionTitle>
+      {accessories.map((item, index) => (
+        <StaggerReveal key={item.title} index={13 + index}>
+          <SectionCard muted>
+            <View style={styles.cardBody}>
+              <Text style={styles.cardTitle}>{item.title}</Text>
+              <Text style={styles.cardSubtitle}>{item.body}</Text>
+            </View>
+            <AspectImage source={item.image} containerStyle={styles.accessoryWrap} resizeMode="contain" />
+            <View style={[styles.cardBody, styles.accessoryFooter]}>
+              <LearnMoreLink label={`Shop ${item.title}`} />
+            </View>
+          </SectionCard>
+        </StaggerReveal>
       ))}
     </ScreenScroll>
   );
@@ -182,16 +212,6 @@ const styles = StyleSheet.create({
     maxWidth: layout.maxContentWidth + 40,
     width: '100%',
     alignSelf: 'center',
-  },
-  sectionTitle: {
-    ...type.sectionTitle,
-    color: colors.textPrimary,
-    textAlign: 'center',
-    paddingHorizontal: layout.screenPaddingX,
-    marginBottom: 16,
-  },
-  sectionSpaced: {
-    marginTop: 28,
   },
   tradeInWrap: {
     backgroundColor: colors.white,

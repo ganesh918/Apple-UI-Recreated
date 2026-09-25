@@ -1,10 +1,16 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { StyleSheet, Text, View } from 'react-native';
+import Animated from 'react-native-reanimated';
 import { AspectImage } from '../components/AspectImage';
 import { BuyButton } from '../components/BuyButton';
-import { LearnMoreLink } from '../components/LearnMoreLink';
+import { HeroProductBlock } from '../components/HeroProductBlock';
+import { Reveal } from '../components/Reveal';
 import { ScreenScroll } from '../components/ScreenScroll';
+import { SectionTitle } from '../components/SectionTitle';
+import { WhatMakesIphoneSection } from '../components/WhatMakesIphoneSection';
 import { colors } from '../theme/colors';
 import { layout, type } from '../theme/layout';
+import { revealScale } from '../motion/presets';
 
 const guidedTourBg = require('../../assets/images/guided-tour-bg-17f807.png');
 
@@ -40,47 +46,41 @@ const products = [
 export function HomeScreen() {
   return (
     <ScreenScroll style={styles.container} contentContainerStyle={styles.content}>
-      <View style={styles.promoBanner}>
-        <Text style={styles.promoText}>
-          Get $200–$600 in credit toward iPhone 14 or iPhone 14 Pro when you trade in iPhone 11 or
-          higher.
-        </Text>
-      </View>
+      <Reveal variant="fade">
+        <LinearGradient
+          colors={['#F5F5F7', '#FBFBFD', '#F5F5F7']}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={styles.promoBanner}
+        >
+          <Text style={styles.promoText}>
+            Get $200–$600 in credit toward iPhone 14 or iPhone 14 Pro when you trade in iPhone 11
+            or higher.
+          </Text>
+        </LinearGradient>
+      </Reveal>
 
-      {products.map((product) => (
-        <View key={product.id} style={[styles.hero, { backgroundColor: product.bg }]}>
-          <View style={styles.heroCopy}>
-            {product.badge ? (
-              <Text style={styles.newBadge}>{product.badge}</Text>
-            ) : null}
-            <Image source={product.logo} style={styles.logo} resizeMode="contain" />
-            <Text style={[styles.headline, product.light && styles.textLight]}>
-              {product.headline}
-            </Text>
-            <Text style={[styles.price, product.light && styles.textLight]}>{product.price}</Text>
-            <View style={styles.ctaRow}>
-              <BuyButton centered />
-              <LearnMoreLink light={product.light} />
-            </View>
-          </View>
-          <AspectImage
-            source={product.hero}
-            resizeMode="contain"
-            containerStyle={styles.heroImageWrap}
-          />
-        </View>
+      {products.map((product, index) => (
+        <HeroProductBlock key={product.id} index={index} {...product} />
       ))}
 
-      <View style={styles.guidedTour}>
+      <Animated.View entering={revealScale(200)} style={styles.guidedTour}>
         <AspectImage source={guidedTourBg} resizeMode="cover" />
-        <View style={styles.guidedTourOverlay}>
-          <View style={styles.guidedTourScrim} />
+        <LinearGradient
+          colors={['transparent', 'rgba(0,0,0,0.55)']}
+          style={styles.guidedTourOverlay}
+        >
           <View style={styles.guidedTourContent}>
             <Text style={styles.guidedEyebrow}>A Guided Tour of</Text>
             <Text style={styles.guidedTitle}>iPhone 14 &{'\n'}iPhone 14 Pro</Text>
-            <BuyButton label="Watch the film" centered />
+            <BuyButton label="Watch the film" centered animated />
           </View>
-        </View>
+        </LinearGradient>
+      </Animated.View>
+
+      <View style={styles.whatMakes}>
+        <SectionTitle>What makes an iPhone an iPhone?</SectionTitle>
+        <WhatMakesIphoneSection />
       </View>
     </ScreenScroll>
   );
@@ -94,10 +94,10 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     width: '100%',
     alignItems: 'stretch',
+    paddingBottom: 8,
   },
   promoBanner: {
-    backgroundColor: colors.bgLight,
-    paddingVertical: 12,
+    paddingVertical: 14,
     paddingHorizontal: layout.screenPaddingX,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: colors.border,
@@ -108,58 +108,6 @@ const styles = StyleSheet.create({
     color: colors.textPrimary,
     maxWidth: layout.maxContentWidth,
     alignSelf: 'center',
-  },
-  hero: {
-    marginBottom: layout.sectionGap,
-    overflow: 'hidden',
-  },
-  heroCopy: {
-    paddingTop: 36,
-    paddingHorizontal: layout.screenPaddingX,
-    paddingBottom: 8,
-    alignItems: 'center',
-    maxWidth: layout.maxContentWidth,
-    alignSelf: 'center',
-    width: '100%',
-  },
-  newBadge: {
-    color: colors.new,
-    fontSize: 21,
-    fontWeight: '600',
-    marginBottom: 8,
-    letterSpacing: -0.02 * 21,
-  },
-  logo: {
-    height: 28,
-    width: 180,
-    marginBottom: 14,
-  },
-  headline: {
-    ...type.heroHeadline,
-    textAlign: 'center',
-    color: colors.textPrimary,
-    marginBottom: 10,
-  },
-  textLight: {
-    color: colors.bgLight,
-  },
-  price: {
-    ...type.body,
-    textAlign: 'center',
-    color: colors.textPrimary,
-    marginBottom: 18,
-  },
-  ctaRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 16,
-    marginBottom: 8,
-  },
-  heroImageWrap: {
-    marginTop: 4,
-    paddingHorizontal: 4,
   },
   guidedTour: {
     marginHorizontal: layout.screenPaddingX - 4,
@@ -172,14 +120,9 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFill,
     justifyContent: 'flex-end',
   },
-  guidedTourScrim: {
-    ...StyleSheet.absoluteFill,
-    backgroundColor: 'rgba(0, 0, 0, 0.22)',
-  },
   guidedTourContent: {
     paddingHorizontal: 28,
     paddingVertical: 32,
-    zIndex: 1,
     alignItems: 'flex-start',
   },
   guidedEyebrow: {
@@ -193,5 +136,9 @@ const styles = StyleSheet.create({
     lineHeight: 34,
     fontWeight: '700',
     marginBottom: 20,
+  },
+  whatMakes: {
+    marginTop: 32,
+    paddingHorizontal: layout.screenPaddingX - 4,
   },
 });

@@ -1,9 +1,12 @@
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+import Animated, { FadeInRight } from 'react-native-reanimated';
 import { BuyButton } from '../components/BuyButton';
 import { LearnMoreLink } from '../components/LearnMoreLink';
+import { Reveal } from '../components/Reveal';
 import { ScreenScroll } from '../components/ScreenScroll';
 import { colors } from '../theme/colors';
 import { layout, type } from '../theme/layout';
+import { easeOut, staggerDelay } from '../motion/presets';
 
 const models = [
   {
@@ -41,7 +44,9 @@ const models = [
 export function CompareScreen() {
   return (
     <ScreenScroll style={styles.container} contentContainerStyle={styles.content}>
-      <Text style={styles.title}>Which iPhone is right for you?</Text>
+      <Reveal variant="down">
+        <Text style={styles.title}>Which iPhone is right for you?</Text>
+      </Reveal>
 
       <ScrollView
         horizontal
@@ -49,33 +54,43 @@ export function CompareScreen() {
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.row}
         style={styles.carousel}
+        decelerationRate="fast"
+        snapToInterval={276}
       >
-        {models.map((model) => (
-          <View key={model.name} style={styles.card}>
+        {models.map((model, index) => (
+          <Animated.View
+            key={model.name}
+            entering={FadeInRight.duration(650)
+              .delay(staggerDelay(index, 85))
+              .easing(easeOut)}
+            style={styles.card}
+          >
             {model.isNew ? <Text style={styles.new}>New</Text> : <View style={styles.newSpacer} />}
             <Image source={model.phone} style={styles.phone} resizeMode="contain" />
             <Image source={model.logo} style={styles.logo} resizeMode="contain" />
             <Text style={styles.tagline}>{model.tagline}</Text>
             <Text style={styles.price}>{model.price}</Text>
             <View style={styles.cardActions}>
-              <BuyButton small centered />
+              <BuyButton small centered animated />
               <LearnMoreLink />
             </View>
-          </View>
+          </Animated.View>
         ))}
       </ScrollView>
 
-      <View style={styles.footerLinks}>
-        <LearnMoreLink label="Compare all iPhone models" />
-        <LearnMoreLink label="Shop iPhone" />
-      </View>
+      <Reveal variant="up" delay={120}>
+        <View style={styles.footerLinks}>
+          <LearnMoreLink label="Compare all iPhone models" />
+          <LearnMoreLink label="Shop iPhone" />
+        </View>
+      </Reveal>
     </ScreenScroll>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.bgPage,
   },
   content: {
     paddingTop: 28,
@@ -101,13 +116,18 @@ const styles = StyleSheet.create({
   },
   card: {
     width: 260,
-    backgroundColor: colors.bgLighter,
+    backgroundColor: colors.white,
     borderRadius: layout.cardRadius,
     paddingVertical: 24,
     paddingHorizontal: 16,
     alignItems: 'center',
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: colors.border,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.08,
+    shadowRadius: 24,
+    elevation: 5,
   },
   new: {
     color: colors.new,
