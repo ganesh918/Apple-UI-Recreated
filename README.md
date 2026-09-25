@@ -30,13 +30,13 @@ See **`docs/REQUIREMENTS.md`** (traceability) and **`docs/RUBRIC.md`** (self-sco
 
 Use the **repository root** as the Vercel project root (leave **Root Directory** empty). Root **`vercel.json`** runs:
 
-- `npm run build:vercel` → Vite site in **`web/dist`** plus Expo **React Native Web** export in **`web/dist/m`**
-- **Desktop / wide screens:** [https://apple-ui-recreated.vercel.app/](https://apple-ui-recreated.vercel.app/) — responsive React landing page  
-- **Phones & narrow viewports:** `/` redirects to **`/m/`** — same UI as the Expo app (tab navigator: iPhone, Compare, Shop), rendered with React Native Web
+- `npm run build:vercel` → Vite site in **`web/dist`**
+- **Desktop / wide screens:** [https://apple-ui-recreated.vercel.app/](https://apple-ui-recreated.vercel.app/) — sign-in, then full Figma landing page  
+- **Mobile web (like [reference mobile UI](https://a-p-p-l-e-ui.netlify.app/mobile/)):** [https://apple-ui-recreated.vercel.app/mobile](https://apple-ui-recreated.vercel.app/mobile) — public page with **Global Nav**, **chapter nav**, and **full scroll** (no bottom tabs). Phones opening `/` redirect to **`/mobile`**. Legacy **`/m`** redirects to **`/mobile`**.
 
-Open the mobile experience directly: [https://apple-ui-recreated.vercel.app/m/](https://apple-ui-recreated.vercel.app/m/)
+The **`mobile/`** Expo project remains for native dev (`npm start --prefix mobile`); it is not used on Vercel anymore.
 
-Do **not** set Vercel Root Directory to `web` only, or the `/m` React Native bundle will not be published.
+Do **not** set Vercel Root Directory to `web` only if you use root **`vercel.json`** (it already builds `web/`).
 
 After pushing changes, trigger **Redeploy** on the latest commit.
 

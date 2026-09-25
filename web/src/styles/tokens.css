@@ -20,6 +20,7 @@
 
   /* Layout */
   --scroll-offset-top: 56px;
+  --global-nav-height: 44px;
   --page-max-width: 1440px;
   --content-width: 980px;
   --content-margin: 230px;

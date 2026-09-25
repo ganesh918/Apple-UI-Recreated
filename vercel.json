@@ -1,11 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "installCommand": "npm install --prefix web && npm install --prefix mobile",
-  "buildCommand": "npm run build:vercel",
+  "installCommand": "npm install --prefix web",
+  "buildCommand": "npm run build --prefix web",
   "outputDirectory": "web/dist",
-  "rewrites": [
-    { "source": "/m", "destination": "/m/index.html" },
-    { "source": "/m/:path*", "destination": "/m/index.html" },
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
+  "redirects": [
+    { "source": "/m", "destination": "/mobile", "permanent": false },
+    { "source": "/m/:path*", "destination": "/mobile", "permanent": false }
+  ],
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }

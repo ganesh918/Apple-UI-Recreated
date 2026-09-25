@@ -60,5 +60,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: npm install --prefix web && npm install --prefix mobile
+      - run: npm install --prefix web
       - run: npm run build:vercel

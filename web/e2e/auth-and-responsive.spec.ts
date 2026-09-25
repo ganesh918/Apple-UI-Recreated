@@ -11,6 +11,16 @@ async function signUpAndLandOnHome(page: import('@playwright/test').Page) {
   await expect(page.getByText(/Two great sizes/i)).toBeVisible({ timeout: 15_000 });
 }
 
+test.describe('Mobile landing (/mobile)', () => {
+  test('public page shows global nav and chapter nav without login', async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name !== 'mobile-chrome', 'Mobile viewport');
+    await page.goto('/mobile');
+    await expect(page.getByRole('navigation', { name: 'Global' })).toBeVisible();
+    await expect(page.getByRole('link', { name: /^Compare$/i })).toBeVisible();
+    await expect(page.getByText(/Two great sizes/i)).toBeVisible();
+  });
+});
+
 test.describe('Authentication', () => {
   test('signup flow reaches the iPhone landing page', async ({ page }) => {
     await signUpAndLandOnHome(page);

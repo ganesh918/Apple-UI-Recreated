@@ -1,0 +1,53 @@
+/**
+ * Mobile landing route (/mobile) — align with full-page Apple iPhone marketing mobile web.
+ */
+
+html.mobile-landing {
+  scroll-behavior: smooth;
+}
+
+html.mobile-landing .page {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  background: var(--color-bg-page, #fff);
+}
+
+html.mobile-landing .global-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+html.mobile-landing .chapter-nav {
+  position: sticky;
+  top: var(--global-nav-height, 44px);
+  z-index: 90;
+  background: rgba(251, 251, 253, 0.94);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+html.mobile-landing .promo-banner {
+  position: relative;
+  z-index: 1;
+}
+
+html.mobile-landing .hero-product {
+  scroll-margin-top: calc(var(--global-nav-height, 44px) + 100px);
+}
+
+html.mobile-landing .iphone-compare,
+html.mobile-landing .ways-to-save,
+html.mobile-landing .get-more-out,
+html.mobile-landing .what-makes-iphone,
+html.mobile-landing .featured-accessories,
+html.mobile-landing .service-highlights {
+  scroll-margin-top: calc(var(--global-nav-height, 44px) + 88px);
+}
+
+@media (max-width: 734px) {
+  html.mobile-landing .footer {
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
+  }
+}
